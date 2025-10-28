@@ -1,327 +1,441 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Thought Flow Blog</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Thought Flow Renovations — Professional Contracting</title>
 <style>
-:root {
-  --bg-color: #f4f4f4;
-  --text-color: #222;
-  --card-bg: #fff;
-  --accent-color: #0077ff;
-}
-[data-theme="dark"] {
-  --bg-color: #0e1117;
-  --text-color: #e2e8f0;
-  --card-bg: #1a1f29;
-  --accent-color: #66aaff;
-}
-body {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 3rem;
-  background: var(--card-bg);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-h1 {
-  font-size: 1.8rem;
-  color: var(--accent-color);
-  margin: 0;
-}
-.btn {
-  background: var(--accent-color);
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-left: 0.5rem;
-}
-.btn:hover {
-  opacity: 0.85;
-  transform: scale(1.05);
-}
-main {
-  max-width: 950px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  display: grid;
-  gap: 2rem;
-}
-.intro {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.intro h2 {
-  color: var(--accent-color);
-  font-size: 1.6rem;
-}
-.intro p {
-  max-width: 700px;
-  margin: 0.5rem auto;
-  line-height: 1.6;
-}
-.post {
-  background: var(--card-bg);
-  padding: 1.5rem;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.post:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
-}
-.post h2 {
-  color: var(--accent-color);
-  margin-top: 0;
-}
-.post small {
-  opacity: 0.7;
-  display: block;
-  margin-bottom: 0.6rem;
-}
-.post p {
-  line-height: 1.7;
-  margin-bottom: 1rem;
-}
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  color: var(--text-color);
-  border-top: 1px solid rgba(0,0,0,0.1);
-  font-size: 0.9rem;
-}
-footer a {
-  color: var(--accent-color);
-  text-decoration: none;
-  margin: 0 8px;
-}
-footer a:hover {
-  text-decoration: underline;
-}
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
+  :root{
+    --bg:#f4f6f8; --card:#ffffff; --text:#111827; --accent:#0b74ff; --muted:#6b7280;
   }
-}
+  [data-theme="dark"]{
+    --bg:#0b0f14; --card:#0f1720; --text:#e6eef8; --accent:#66aaff; --muted:#9aa6b2;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Poppins",sans-serif;
+    background:var(--bg); color:var(--text); transition:background .25s ease,color .25s ease;
+    -webkit-font-smoothing:antialiased;
+  }
+  header{
+    position:sticky; top:0; z-index:20;
+    display:flex; justify-content:space-between; align-items:center;
+    gap:1rem; padding:1rem 1.5rem; background:var(--card);
+    border-bottom:1px solid rgba(0,0,0,0.04); box-shadow:0 6px 18px rgba(2,6,23,0.04);
+  }
+  .brand{display:flex; align-items:center; gap:.75rem;}
+  .logo{
+    width:44px; height:44px; border-radius:8px; background:linear-gradient(135deg,var(--accent),#2b9bff);
+    display:flex; align-items:center; justify-content:center; color:white; font-weight:700;
+  }
+  h1{font-size:1.05rem; margin:0; color:var(--accent)}
+  .controls{display:flex; gap:.5rem; align-items:center;}
+  .btn{
+    background:var(--accent); color:white; border:none; padding:.5rem .8rem; border-radius:8px;
+    cursor:pointer; font-weight:600; display:inline-flex; gap:.5rem; align-items:center;
+  }
+  .btn.secondary{background:transparent; color:var(--text); border:1px solid rgba(0,0,0,0.06)}
+  main{max-width:1100px; margin:2rem auto; padding:0 1rem; display:grid; gap:1.5rem}
+  .hero{
+    display:grid; grid-template-columns:1fr; gap:1rem; align-items:center;
+    background:var(--card); padding:1.5rem; border-radius:12px; box-shadow:0 8px 24px rgba(2,6,23,0.04);
+  }
+  .hero h2{margin:.25rem 0; color:var(--accent); font-size:1.4rem}
+  .hero p{margin:0; color:var(--muted); line-height:1.6}
+  .meta{color:var(--muted); font-size:.95rem}
+  .grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1rem;
+  }
+  .card{background:var(--card); padding:1rem; border-radius:12px; box-shadow:0 8px 18px rgba(2,6,23,0.04)}
+  .card h3{margin:.25rem 0; color:var(--accent)}
+  .card p{margin:.4rem 0; color:var(--muted); line-height:1.6}
+  .gallery{
+    display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:.6rem;
+  }
+  .gallery img{width:100%; height:140px; object-fit:cover; border-radius:10px; display:block}
+  .post{
+    background:var(--card); padding:1.25rem; border-radius:12px; box-shadow:0 8px 22px rgba(2,6,23,0.04);
+  }
+  .post h2{margin:.3rem 0; color:var(--accent)}
+  .post small{color:var(--muted); display:block; margin-bottom:.6rem}
+  .post p{margin:0 0 .9rem 0; line-height:1.7; color:var(--text)}
+  footer{
+    margin-top:1rem; padding:2rem 1rem; text-align:center; color:var(--muted);
+  }
+  nav.links{display:flex; gap:.6rem; flex-wrap:wrap; align-items:center}
+  a.link{color:var(--accent); text-decoration:none; font-weight:600}
+  .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem}
+  @media (min-width:820px){
+    .hero{grid-template-columns:1fr 360px}
+  }
+  @media (max-width:480px){
+    header{padding:.75rem .75rem}
+    .controls{flex-wrap:wrap}
+  }
 </style>
 </head>
 <body>
 <header>
-<h1>✨ The Thought Flow</h1>
-<div>
-<button class="btn" id="themeButton">🌙 Dark Mode</button>
-<button class="btn" id="langButton">🇬🇧 English</button>
-</div>
+  <div class="brand">
+    <div class="logo">TF</div>
+    <div>
+      <h1>The Thought Flow Renovations</h1>
+      <div class="meta" style="font-size:.85rem">Professional contracting • Colorado service area</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <nav class="links" aria-label="top links">
+      <a class="link" href="#portfolio">Portfolio</a>
+      <a class="link" href="#services">Services</a>
+      <a class="link" href="#posts">Articles</a>
+      <a class="link" href="#contact">Contact</a>
+    </nav>
+    <button class="btn secondary" id="themeButton">🌙 Dark Mode</button>
+    <button class="btn" id="langButton">🇬🇧 English</button>
+  </div>
 </header>
+
 <main id="content">
-<!-- Dynamic content goes here -->
+  <section class="hero">
+    <div>
+      <h2>Professional Home Renovation & Construction</h2>
+      <p>
+        Experienced contracting for thoughtful remodels, durable builds, and functional design. We focus on craftsmanship,
+        code-compliant construction, and solutions that make homes safer, more beautiful, and more efficient across Colorado.
+      </p>
+      <p style="margin-top:.6rem" class="meta">Tips, best practices, and project case studies for contractors and renovation professionals.</p>
+    </div>
+
+    <aside class="card" aria-labelledby="contact-heading">
+      <h3 id="contact-heading">Contact</h3>
+      <p class="meta">Email: <a class="link" id="emailLink" href="mailto:you@example.com">you@example.com</a></p>
+      <p class="meta">Service area: Colorado (statewide)</p>
+      <p style="margin-top:.5rem">Replace the email in the header when you're ready. The contact link is a simple `mailto:` placeholder for now.</p>
+    </aside>
+  </section>
+
+  <section id="portfolio" class="card" aria-labelledby="portfolio-heading">
+    <h3 id="portfolio-heading">Portfolio — Recent Projects</h3>
+    <p class="meta">Placeholder images — replace with your project photos (hosted in the repo or a CDN)</p>
+    <div class="gallery" style="margin-top:.6rem">
+      <img src="https://via.placeholder.com/800x600?text=Project+1" alt="Project 1 - kitchen remodel">
+      <img src="https://via.placeholder.com/800x600?text=Project+2" alt="Project 2 - bathroom remodel">
+      <img src="https://via.placeholder.com/800x600?text=Project+3" alt="Project 3 - exterior renovation">
+      <img src="https://via.placeholder.com/800x600?text=Project+4" alt="Project 4 - basement finish">
+      <img src="https://via.placeholder.com/800x600?text=Project+5" alt="Project 5 - custom cabinetry">
+      <img src="https://via.placeholder.com/800x600?text=Project+6" alt="Project 6 - deck and patio">
+    </div>
+  </section>
+
+  <section id="services" class="card" aria-labelledby="services-heading">
+    <h3 id="services-heading">Services</h3>
+    <div class="services" style="margin-top:.6rem">
+      <div>
+        <h4 style="margin:.2rem 0; color:var(--accent)">Full Home Renovation</h4>
+        <p class="meta">Design coordination, permitting assistance, structural upgrades, and finish carpentry.</p>
+      </div>
+      <div>
+        <h4 style="margin:.2rem 0; color:var(--accent)">Kitchen & Bath Remodels</h4>
+        <p class="meta">Code-compliant installations, efficient layouts, cabinetry, and tile work.</p>
+      </div>
+      <div>
+        <h4 style="margin:.2rem 0; color:var(--accent)">Additions & Structural Work</h4>
+        <p class="meta">Foundations, framing, load calculations, and coordination with engineers.</p>
+      </div>
+      <div>
+        <h4 style="margin:.2rem 0; color:var(--accent)">Energy & Envelope Upgrades</h4>
+        <p class="meta">Insulation, air sealing, window upgrades, and efficient HVAC coordination.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="posts">
+    <!-- Posts render here -->
+  </section>
 </main>
+
 <footer>
-<p>Made with ❤️ by a curious mind | © 2025 The Thought Flow</p>
-<p>
-<a href="#">About</a> • 
-<a href="#">Contact</a> • 
-<a href="#">Privacy</a>
-</p>
+  <div style="max-width:1100px;margin:0 auto;">
+    <p style="margin:.2rem 0">© 2025 The Thought Flow Renovations • Serving Colorado • No pricing listed</p>
+    <p style="margin:.2rem 0; color:var(--muted)">Built for GitHub Pages — copy `index.html` to your repo and enable Pages on the main branch (root).</p>
+  </div>
 </footer>
+
 <script>
-const themeButton = document.getElementById("themeButton");
-const langButton = document.getElementById("langButton");
-const content = document.getElementById("content");
+  // Persisted theme & language
+  const themeButton = document.getElementById('themeButton');
+  const langButton = document.getElementById('langButton');
+  const emailLink = document.getElementById('emailLink');
 
-// Theme
-const currentTheme = localStorage.getItem("theme") || "light";
-document.documentElement.setAttribute("data-theme", currentTheme);
-themeButton.textContent = currentTheme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode";
-themeButton.addEventListener("click", () => {
-  const newTheme = document.documentElement.getAttribute("data-theme")==="light"?"dark":"light";
-  document.documentElement.setAttribute("data-theme", newTheme);
-  localStorage.setItem("theme", newTheme);
-  themeButton.textContent = newTheme==="light"?"🌙 Dark Mode":"☀️ Light Mode";
-});
+  // Theme logic
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  themeButton.textContent = savedTheme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode';
 
-// Content
-const languages = {
-  en: {
-    introTitle: "Welcome to The Thought Flow Blog",
-    introText: "Exploring creativity, technology, and mindful living — one idea at a time.",
-    posts: [
-      {title:"The Rise of Creative Tech", date:"Oct 20, 2025 • 4 min read", paragraphs:[
-        "Technology and creativity are merging faster than ever. From AI-generated art to VR storytelling, the digital world is a new canvas for imagination.",
-        "Algorithms no longer replace artists—they collaborate with them, opening new creative possibilities.",
-        "Creators are experimenting with mixed media, blending traditional and digital art forms for unique experiences.",
-        "The future of creativity is co-created by humans and machines, forming an exciting partnership."
-      ]},
-      {title:"Why Simplicity Wins", date:"Oct 22, 2025 • 3 min read", paragraphs:[
-        "In design, less is always more. Simplicity lets your ideas breathe and stand out.",
-        "Clutter confuses the mind; clarity enhances understanding and impact.",
-        "Minimalism in writing, visuals, and life boosts focus and engagement.",
-        "The best content is purposeful, with each element serving a clear function."
-      ]},
-      {title:"Balancing the Online World", date:"Oct 24, 2025 • 5 min read", paragraphs:[
-        "We live online, but balance is key. Time offline resets your mind and improves focus.",
-        "Digital breaks help nurture creativity and prevent burnout.",
-        "Setting boundaries with devices creates mental clarity and space for reflection.",
-        "Mindful online usage allows meaningful connections without overwhelm."
-      ]},
-      {title:"Building Meaning in a Fast World", date:"Oct 26, 2025 • 4 min read", paragraphs:[
-        "Speed defines modern life, but meaning requires patience and intention.",
-        "Slowing down allows quality work and thoughtful creation to emerge.",
-        "Time spent reflecting enhances insight and decision-making.",
-        "Prioritizing depth over speed fosters a fulfilling and purposeful life."
-      ]},
-      {title:"Embracing Digital Minimalism", date:"Oct 28, 2025 • 4 min read", paragraphs:[
-        "Digital minimalism focuses on intentional technology use.",
-        "Reducing notifications and distractions improves mental clarity.",
-        "Streamlined tools allow creators to focus on what truly matters.",
-        "A minimalist digital lifestyle supports creativity, health, and productivity."
-      ]},
-      {title:"The Art of Mindful Productivity", date:"Oct 30, 2025 • 5 min read", paragraphs:[
-        "Mindful productivity balances output with presence and awareness.",
-        "Time-blocking and reflection enhance focus without stress.",
-        "Combining deep work with mindful breaks maximizes efficiency.",
-        "Awareness of your workflow helps maintain long-term creativity."
-      ]},
-      {title:"Creativity Beyond Screens", date:"Nov 1, 2025 • 4 min read", paragraphs:[
-        "Creativity isn’t limited to digital devices; offline work stimulates new ideas.",
-        "Sketching, writing by hand, or brainstorming in nature sparks innovation.",
-        "Physical activities can trigger unexpected creative insights.",
-        "Blending digital and offline processes leads to richer creative outcomes."
-      ]},
-      {title:"Learning from Global Perspectives", date:"Nov 3, 2025 • 3 min read", paragraphs:[
-        "Exposure to different cultures and ideas expands creativity.",
-        "Travel, reading, and conversations introduce fresh perspectives.",
-        "Understanding diverse approaches helps solve problems innovatively.",
-        "Collaboration across borders strengthens creative projects."
-      ]},
-      {title:"Sustainability and Tech", date:"Nov 5, 2025 • 4 min read", paragraphs:[
-        "Technology and sustainability can coexist when used thoughtfully.",
-        "Eco-friendly design in software and hardware reduces environmental impact.",
-        "Digital solutions can promote responsible resource usage.",
-        "Awareness of environmental implications leads to conscious creative choices."
-      ]},
-      {title:"The Future of Thoughtful Design", date:"Nov 7, 2025 • 5 min read", paragraphs:[
-        "Thoughtful design blends aesthetics, usability, and ethics.",
-        "Designers consider user experience, social impact, and sustainability.",
-        "Future innovation lies in human-centered, responsible design practices.",
-        "Balancing functionality with empathy creates products that truly matter."
-      ]}
-    ]
-  },
-  es: {
-    introTitle: "Bienvenido a The Thought Flow Blog",
-    introText: "Explorando la creatividad, la tecnología y la vida consciente — una idea a la vez.",
-    posts: [
-      {title:"El Auge de la Tecnología Creativa", date:"20 de octubre de 2025 • 4 min de lectura", paragraphs:[
-        "La tecnología y la creatividad se fusionan rápidamente. Desde el arte generado por IA hasta la narración en realidad virtual, el mundo digital es un nuevo lienzo para la imaginación.",
-        "Los algoritmos ya no reemplazan a los artistas, colaboran con ellos, abriendo nuevas posibilidades creativas.",
-        "Los creadores experimentan con medios mixtos, combinando arte tradicional y digital para experiencias únicas.",
-        "El futuro de la creatividad se co-crea entre humanos y máquinas, formando una asociación emocionante."
-      ]},
-      {title:"Por Qué Gana la Simplicidad", date:"22 de octubre de 2025 • 3 min de lectura", paragraphs:[
-        "En diseño, menos es siempre más. La simplicidad permite que tus ideas respiren y destaquen.",
-        "El desorden confunde la mente; la claridad mejora la comprensión y el impacto.",
-        "El minimalismo en escritura, visuales y vida aumenta el enfoque y la participación.",
-        "El mejor contenido es intencional, con cada elemento cumpliendo una función clara."
-      ]},
-      {title:"Equilibrando el Mundo en Línea", date:"24 de octubre de 2025 • 5 min de lectura", paragraphs:[
-        "Vivimos en línea, pero el equilibrio es clave. Tomar tiempo fuera de la red reinicia la mente y mejora el enfoque.",
-        "Los descansos digitales ayudan a nutrir la creatividad y prevenir el agotamiento.",
-        "Establecer límites con los dispositivos crea claridad mental y espacio para reflexionar.",
-        "El uso consciente de internet permite conexiones significativas sin abrumarse."
-      ]},
-      {title:"Construyendo Significado en un Mundo Rápido", date:"26 de octubre de 2025 • 4 min de lectura", paragraphs:[
-        "La velocidad define la vida moderna, pero el significado requiere paciencia e intención.",
-        "Disminuir el ritmo permite que emerja un trabajo de calidad y reflexivo.",
-        "El tiempo dedicado a reflexionar mejora la percepción y la toma de decisiones.",
-        "Priorizar la profundidad sobre la rapidez fomenta una vida plena y significativa."
-      ]},
-      {title:"Abrazando el Minimalismo Digital", date:"28 de octubre de 2025 • 4 min de lectura", paragraphs:[
-        "El minimalismo digital se centra en el uso intencional de la tecnología.",
-        "Reducir notificaciones y distracciones mejora la claridad mental.",
-        "Las herramientas optimizadas permiten a los creadores enfocarse en lo importante.",
-        "Un estilo de vida digital minimalista apoya la creatividad, la salud y la productividad."
-      ]},
-      {title:"El Arte de la Productividad Consciente", date:"30 de octubre de 2025 • 5 min de lectura", paragraphs:[
-        "La productividad consciente equilibra la producción con la presencia y la atención.",
-        "La planificación de tiempo y la reflexión mejoran el enfoque sin estrés.",
-        "Combinar trabajo profundo con pausas conscientes maximiza la eficiencia.",
-        "Ser consciente de tu flujo de trabajo mantiene la creatividad a largo plazo."
-      ]},
-      {title:"Creatividad Más Allá de las Pantallas", date:"1 de noviembre de 2025 • 4 min de lectura", paragraphs:[
-        "La creatividad no se limita a dispositivos digitales; el trabajo offline genera nuevas ideas.",
-        "Dibujar, escribir a mano o reflexionar en la naturaleza estimula la innovación.",
-        "Las actividades físicas pueden desencadenar perspectivas creativas inesperadas.",
-        "Combinar procesos digitales y offline genera resultados creativos más ricos."
-      ]},
-      {title:"Aprender de Perspectivas Globales", date:"3 de noviembre de 2025 • 3 min de lectura", paragraphs:[
-        "Exponerse a diferentes culturas e ideas expande la creatividad.",
-        "Viajar, leer y conversar introduce nuevas perspectivas.",
-        "Comprender enfoques diversos ayuda a resolver problemas de manera innovadora.",
-        "La colaboración internacional fortalece los proyectos creativos."
-      ]},
-      {title:"Sostenibilidad y Tecnología", date:"5 de noviembre de 2025 • 4 min de lectura", paragraphs:[
-        "La tecnología y la sostenibilidad pueden coexistir cuando se usan con cuidado.",
-        "El diseño ecológico en software y hardware reduce el impacto ambiental.",
-        "Las soluciones digitales pueden promover un uso responsable de recursos.",
-        "Ser consciente de las implicaciones ambientales lleva a decisiones creativas responsables."
-      ]},
-      {title:"El Futuro del Diseño Reflexivo", date:"7 de noviembre de 2025 • 5 min de lectura", paragraphs:[
-        "El diseño reflexivo combina estética, usabilidad y ética.",
-        "Los diseñadores consideran la experiencia del usuario, el impacto social y la sostenibilidad.",
-        "La innovación futura reside en prácticas de diseño centradas en el ser humano y responsables.",
-        "Equilibrar funcionalidad con empatía crea productos que realmente importan."
-      ]}
-    ]
+  themeButton.addEventListener('click', () => {
+    const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    themeButton.textContent = newTheme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode';
+  });
+
+  // Content data (10 posts x 4 paras each)
+  const data = {
+    en: {
+      posts: [
+        {
+          title: "Planning a Remodel: Foundations for Success",
+          date: "Nov 10, 2025 • 6 min read",
+          paragraphs: [
+            "Every successful renovation begins with careful planning. As contractors we map out scope, budgets, and timelines before the first demo day.",
+            "Pre-construction meetings set expectations with clients, trades, and suppliers; they reduce surprises and help projects flow on schedule.",
+            "Permitting and local code review are critical — allow time in timelines for plan reviews and inspections, especially for structural or mechanical changes.",
+            "A clear plan includes contingency strategies for unknowns like hidden water damage, outdated wiring, or permit delays; expect and manage these risks."
+          ]
+        },
+        {
+          title: "Foundation Basics: What Every Pro Should Know",
+          date: "Nov 12, 2025 • 5 min read",
+          paragraphs: [
+            "A durable project starts at the foundation. Proper compaction, drainage, and footings are essential for long-term performance.",
+            "Understanding soil conditions and frost lines in Colorado informs foundation depth and insulation choices to prevent movement over seasons.",
+            "Water management around the foundation — including proper slopes, gutters, and drains — protects the structure from moisture intrusion.",
+            "Concrete mix, curing time, and reinforcement placement must follow structural plans to ensure the foundation carries design loads safely."
+          ]
+        },
+        {
+          title: "Framing Best Practices: Precision & Efficiency",
+          date: "Nov 14, 2025 • 5 min read",
+          paragraphs: [
+            "Framing defines the building geometry; accurate layout and plumb work prevent headaches later at finish stages.",
+            "Use layout templates and consistent measurement routines to speed up wall placement and reduce material waste.",
+            "Coordinate framing with rough-in trades early to reserve chases for plumbing, HVAC, and electrical without compromising structure.",
+            "Quality fasteners, correct nailing patterns, and blocking for cabinetry and trim make installations faster and more durable."
+          ]
+        },
+        {
+          title: "Electrical & Plumbing Coordination on Renovations",
+          date: "Nov 16, 2025 • 6 min read",
+          paragraphs: [
+            "Complex remodels require tight coordination between electrical and plumbing trades to avoid conflicts in wall cavities and service routes.",
+            "Plan circuits for modern demands — EV chargers, home offices, and efficient appliance layouts often change load calculations.",
+            "For plumbing, prioritize accessible shutoffs and consider future maintenance when routing supply and drainage lines.",
+            "Inspectors value clear documentation on changes; keep as-built notes, updated diagrams, and photos of concealed work during rough-in."
+          ]
+        },
+        {
+          title: "Kitchen Renovation Essentials for Longevity",
+          date: "Nov 18, 2025 • 6 min read",
+          paragraphs: [
+            "Kitchens are high-use spaces; durable surfaces and functional layouts increase longevity and client satisfaction.",
+            "Select cabinets with solid construction, consider plywood boxes and dovetail drawers where budgets permit for lasting performance.",
+            "Plan for ventilation, proper clearances, and appliance accessibility—these details drive practical success every day.",
+            "Pay attention to waterproofing and substrate preparation around wet areas to avoid costly repairs down the road."
+          ]
+        },
+        {
+          title: "Bathroom Remodel Guide: Waterproofing & Detail",
+          date: "Nov 20, 2025 • 6 min read",
+          paragraphs: [
+            "Bathrooms demand rigorous waterproofing and careful sequencing of trades to protect the home’s framing and finishes.",
+            "Choose appropriate membranes, transition details, and sloped substrates in wet areas to ensure proper drainage.",
+            "Tile installations require flat substrates and proper trowel sizes; a small flatness issue can become obvious in finished tile.",
+            "Ventilation, durable fixtures, and accessible servicing locations are essential considerations for lasting bathroom systems."
+          ]
+        },
+        {
+          title: "Finishing Carpentry & Trim: The Small Things That Matter",
+          date: "Nov 22, 2025 • 5 min read",
+          paragraphs: [
+            "Finish carpentry elevates quality; tight joints, consistent reveal spacing, and correct fastener placement show craftsmanship.",
+            "Pre-fit trim elements before the final coatings to avoid surprises and to allow for minor adjustments.",
+            "Use the right adhesives and fasteners for materials—engineered wood behaves differently than solid hardwood.",
+            "A well-sequenced finish schedule minimizes rework and protects finishes from construction wear during punch-list items."
+          ]
+        },
+        {
+          title: "Energy Efficiency Upgrades That Pay Back",
+          date: "Nov 24, 2025 • 5 min read",
+          paragraphs: [
+            "Improving the building envelope through insulation and air sealing is often the highest-impact upgrade for comfort and performance.",
+            "High-efficiency HVAC equipment with proper sizing and distribution improves comfort while reducing operating cost.",
+            "Window choices, shading strategies, and thermal breaks matter in Colorado’s varied climate—choose products for climate performance.",
+            "Documenting upgrades and providing owners with maintenance guidance improves the lifetime value of energy improvements."
+          ]
+        },
+        {
+          title: "Project Management Tips for Contractors",
+          date: "Nov 26, 2025 • 6 min read",
+          paragraphs: [
+            "Successful contractors track materials, schedule milestones, and maintain open communication with clients and crews.",
+            "Digital tools for scheduling and daily logs reduce confusion and provide a clear record that supports on-time completion.",
+            "Maintain a realistic procurement lead time for specialty materials and long-lead items to avoid schedule slips.",
+            "A structured punch-list process and staged owner walkthroughs close out projects cleanly and reduce lingering issues."
+          ]
+        },
+        {
+          title: "Safety & Site Management: Protecting People & Property",
+          date: "Nov 28, 2025 • 5 min read",
+          paragraphs: [
+            "Site safety is a professional responsibility — clear pathways, PPE, and regular toolbox talks reduce incidents.",
+            "Protect existing finishes during remodels with appropriate coverings and barrier systems to avoid damage claims.",
+            "Waste management, secure storage of tools, and controlled access make sites efficient and reduce theft or loss.",
+            "Emergency plans, first-aid readiness, and clear contractor insurance documentation demonstrate seriousness and build trust."
+          ]
+        }
+      ]
+    },
+    es: {
+      posts: [
+        {
+          title: "Planificación de una Remodelación: Bases para el Éxito",
+          date: "10 de noviembre de 2025 • 6 min de lectura",
+          paragraphs: [
+            "Toda renovación exitosa comienza con una planificación cuidadosa. Como contratistas, definimos alcance, cronogramas y permisos antes del primer día de demolición.",
+            "Las reuniones de preconstrucción establecen expectativas con clientes, subcontratistas y proveedores; reducen sorpresas y ayudan al flujo del proyecto.",
+            "La revisión de permisos y códigos locales es crítica: permita tiempo en el cronograma para revisiones y inspecciones, especialmente para cambios estructurales.",
+            "Un plan claro incluye estrategias de contingencia para lo desconocido: daños ocultos por agua, cableado viejo o retrasos en permisos; anticipe y gestione estos riesgos."
+          ]
+        },
+        {
+          title: "Fundamentos de la Cimentación: Lo que Todo Profesional Debe Saber",
+          date: "12 de noviembre de 2025 • 5 min de lectura",
+          paragraphs: [
+            "Un proyecto duradero comienza en la cimentación. La compactación, drenaje y zapatas adecuadas son esenciales para el desempeño a largo plazo.",
+            "Comprender las condiciones del suelo y la línea de congelación en Colorado informa la profundidad y el aislamiento necesario para evitar movimientos estacionales.",
+            "La gestión del agua alrededor de la cimentación —incluyendo pendientes, canaletas y drenajes— protege la estructura de la entrada de humedad.",
+            "La mezcla de hormigón, el tiempo de curado y la colocación de refuerzos deben seguir los planos estructurales para que la cimentación soporte las cargas de diseño."
+          ]
+        },
+        {
+          title: "Buenas Prácticas en Estructuras: Precisión y Eficiencia",
+          date: "14 de noviembre de 2025 • 5 min de lectura",
+          paragraphs: [
+            "La estructura define la geometría del edificio; un trazado y nivelación precisos evitan problemas en etapas de acabado.",
+            "Use plantillas de trazado y rutinas de medición consistentes para acelerar la colocación de muros y reducir desperdicio de material.",
+            "Coordine la estructura con las instalaciones tempranas para reservar huecos para fontanería, HVAC y eléctrico sin comprometer la integridad.",
+            "Sujetadores de calidad, patrones de clavado correctos y entablillado para carpintería y molduras hacen las instalaciones más rápidas y duraderas."
+          ]
+        },
+        {
+          title: "Coordinación Eléctrica y de Fontanería en Remodelaciones",
+          date: "16 de noviembre de 2025 • 6 min de lectura",
+          paragraphs: [
+            "Las remodelaciones complejas requieren una estrecha coordinación entre eléctricos y fontaneros para evitar conflictos en cavidades y rutas de servicio.",
+            "Planifique circuitos para demandas modernas —cargadores EV, oficinas en casa y electrodomésticos eficientes cambian los cálculos de carga.",
+            "Para la fontanería, priorice válvulas de cierre accesibles y considere mantenimiento futuro al trazar líneas de suministro y desagüe.",
+            "Los inspectores valoran la documentación clara de cambios; mantenga notas, diagramas y fotos de trabajo oculto durante el proceso de instalaciones."
+          ]
+        },
+        {
+          title: "Esenciales para Renovación de Cocinas Duraderas",
+          date: "18 de noviembre de 2025 • 6 min de lectura",
+          paragraphs: [
+            "Las cocinas son espacios de uso intensivo; superficies duraderas y diseños funcionales aumentan la longevidad y satisfacción del cliente.",
+            "Seleccione gabinetes con construcción sólida; considere cajas de contrachapado y cajones machihembrados donde el presupuesto lo permita.",
+            "Planifique ventilación, holguras y accesibilidad de electrodomésticos—estos detalles marcan la diferencia día a día.",
+            "Preste atención a la impermeabilización y la preparación del sustrato alrededor de áreas húmedas para evitar reparaciones costosas."
+          ]
+        },
+        {
+          title: "Guía de Remodelación de Baños: Impermeabilización y Detalle",
+          date: "20 de noviembre de 2025 • 6 min de lectura",
+          paragraphs: [
+            "Los baños exigen impermeabilización estricta y una secuencia de oficios que proteja la estructura y los acabados de la vivienda.",
+            "Elija membranas adecuadas, detalles de transición y sustratos con pendiente en zonas húmedas para asegurar un drenaje correcto.",
+            "Las instalaciones de cerámica requieren sustratos planos y tamaños de llana apropiados; una planitud pequeña se nota en el acabado.",
+            "La ventilación, accesorios duraderos y ubicaciones accesibles para servicio son consideraciones esenciales para sistemas de baño a largo plazo."
+          ]
+        },
+        {
+          title: "Carpintería de Acabado y Molduras: Las Pequeñas Cosas Importan",
+          date: "22 de noviembre de 2025 • 5 min de lectura",
+          paragraphs: [
+            "La carpintería de acabado eleva la calidad; juntas ajustadas, espacios consistentes y fijaciones correctas muestran artesanía.",
+            "Pruebe las piezas de moldura antes del acabado final para evitar sorpresas y permitir ajustes menores.",
+            "Use adhesivos y fijaciones correctos para cada material—la madera ingenierizada se comporta distinto a la sólida.",
+            "Un cronograma de acabados bien secuenciado minimiza retrabajos y protege los acabados durante la lista de pendientes."
+          ]
+        },
+        {
+          title: "Mejoras de Eficiencia Energética que Valen la Pena",
+          date: "24 de noviembre de 2025 • 5 min de lectura",
+          paragraphs: [
+            "Mejorar la envolvente del edificio con aislamiento y sellado de aire suele ser la intervención de mayor impacto para confort y rendimiento.",
+            "Equipos HVAC de alta eficiencia con dimensionamiento y distribución adecuados mejoran el confort y reducen costos operativos.",
+            "Las ventanas, estrategias de sombreado y rupturas térmicas importan en el clima variado de Colorado—elija productos por rendimiento climático.",
+            "Documentar las mejoras y proporcionar guías de mantenimiento a los dueños aumenta el valor de por vida de las mejoras energéticas."
+          ]
+        },
+        {
+          title: "Consejos de Gestión de Proyectos para Contratistas",
+          date: "26 de noviembre de 2025 • 6 min de lectura",
+          paragraphs: [
+            "Contratistas exitosos rastrean materiales, hitos y mantienen comunicación abierta con clientes y equipos.",
+            "Herramientas digitales para cronograma y registros diarios reducen confusiones y proveen un historial claro que respalda la entrega a tiempo.",
+            "Mantenga tiempos de aprovisionamiento realistas para materiales especiales y de larga entrega para evitar retrasos.",
+            "Un proceso estructurado de lista de pendientes y recorridos escalonados con el propietario cierran proyectos de manera limpia y reducen problemas pendientes."
+          ]
+        },
+        {
+          title: "Seguridad y Gestión de Sitio: Proteger Personas y Propiedades",
+          date: "28 de noviembre de 2025 • 5 min de lectura",
+          paragraphs: [
+            "La seguridad en obra es una responsabilidad profesional—vías claras, EPP y charlas de seguridad reducen incidentes.",
+            "Proteja los acabados existentes con cubiertas y barreras apropiadas para evitar reclamos por daños.",
+            "Gestión de desechos, almacenamiento seguro y control de acceso hacen sitios eficientes y reducen robo o pérdida.",
+            "Planes de emergencia, botiquines y documentación de seguros clara demuestran seriedad y generan confianza."
+          ]
+        }
+      ]
+    }
+  };
+
+  // Language logic
+  let currentLang = localStorage.getItem('lang') || 'en';
+  langButton.textContent = currentLang === 'en' ? '🇪🇸 Español' : '🇬🇧 English';
+
+  function renderPosts(lang){
+    const postsSection = document.getElementById('posts');
+    const posts = data[lang].posts;
+    postsSection.innerHTML = posts.map(post => {
+      return `
+        <article class="post" role="article" aria-label="${escapeHtml(post.title)}">
+          <h2>${escapeHtml(post.title)}</h2>
+          <small>${escapeHtml(post.date)}</small>
+          ${post.paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('')}
+        </article>
+      `;
+    }).join('');
+    // update lang button text to indicate alternate language available
+    langButton.textContent = lang === 'en' ? '🇪🇸 Español' : '🇬🇧 English';
   }
-};
 
-let currentLang = localStorage.getItem("lang") || "en";
+  // Utility to escape HTML (basic)
+  function escapeHtml(str){
+    return String(str)
+      .replaceAll('&','&amp;')
+      .replaceAll('<','&lt;')
+      .replaceAll('>','&gt;')
+      .replaceAll('"','&quot;')
+      .replaceAll("'",'&#39;');
+  }
 
-function renderContent(lang){
-  const data = languages[lang];
-  content.innerHTML = `
-    <section class="intro">
-      <h2>${data.introTitle}</h2>
-      <p>${data.introText}</p>
-    </section>
-    ${data.posts.map(post => `
-      <article class="post">
-        <h2>${post.title}</h2>
-        <small>${post.date}</small>
-        ${post.paragraphs.map(p=>`<p>${p}</p>`).join('')}
-      </article>
-    `).join('')}
-  `;
-  langButton.textContent = lang==="en"?"🇪🇸 Español":"🇬🇧 English";
-}
+  langButton.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'es' : 'en';
+    localStorage.setItem('lang', currentLang);
+    renderPosts(currentLang);
+    // optional: smooth scroll to posts to show content after language switch
+    document.getElementById('posts').scrollIntoView({behavior:'smooth'});
+  });
 
-langButton.addEventListener("click",()=>{
-  currentLang = currentLang==="en"?"es":"en";
-  localStorage.setItem("lang",currentLang);
-  renderContent(currentLang);
-});
+  // initial render
+  renderPosts(currentLang);
 
-renderContent(currentLang);
+  // Accessibility: update mailto placeholder if user wants to change easily
+  // (This line does not change the file—it's just an example for future customization)
+  // emailLink.href = 'mailto:yourbusiness@domain.com';
 </script>
 </body>
 </html>
-
-
