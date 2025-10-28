@@ -1,207 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Thought Flow Blog</title>
-  <style>
-    :root {
-      --bg-color: #f4f4f4;
-      --text-color: #222;
-      --card-bg: #fff;
-      --accent-color: #0077ff;
-    }
-
-    [data-theme="dark"] {
-      --bg-color: #0e1117;
-      --text-color: #e2e8f0;
-      --card-bg: #1a1f29;
-      --accent-color: #66aaff;
-    }
-
-    body {
-      font-family: "Poppins", sans-serif;
-      margin: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 3rem;
-      background: var(--card-bg);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      color: var(--accent-color);
-      margin: 0;
-    }
-
-    .theme-toggle {
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      padding: 0.6rem 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .theme-toggle:hover {
-      opacity: 0.85;
-      transform: scale(1.05);
-    }
-
-    main {
-      max-width: 950px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      display: grid;
-      gap: 2rem;
-    }
-
-    .intro {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .intro h2 {
-      color: var(--accent-color);
-      font-size: 1.6rem;
-    }
-
-    .intro p {
-      max-width: 700px;
-      margin: 0.5rem auto;
-      line-height: 1.6;
-    }
-
-    .post {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 14px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .post:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.15);
-    }
-
-    .post h2 {
-      color: var(--accent-color);
-      margin-top: 0;
-    }
-
-    .post small {
-      opacity: 0.7;
-      display: block;
-      margin-bottom: 0.6rem;
-    }
-
-    .post p {
-      line-height: 1.7;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: var(--text-color);
-      border-top: 1px solid rgba(0,0,0,0.1);
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: var(--accent-color);
-      text-decoration: none;
-      margin: 0 8px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        gap: 0.6rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Thought Flow Blog</title>
+<style>
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #222;
+  --card-bg: #fff;
+  --accent-color: #0077ff;
+}
+[data-theme="dark"] {
+  --bg-color: #0e1117;
+  --text-color: #e2e8f0;
+  --card-bg: #1a1f29;
+  --accent-color: #66aaff;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background: var(--card-bg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+h1 {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin: 0;
+}
+.btn {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 0.5rem;
+}
+.btn:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+main {
+  max-width: 950px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  gap: 2rem;
+}
+.intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.intro h2 {
+  color: var(--accent-color);
+  font-size: 1.6rem;
+}
+.intro p {
+  max-width: 700px;
+  margin: 0.5rem auto;
+  line-height: 1.6;
+}
+.post {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+}
+.post h2 {
+  color: var(--accent-color);
+  margin-top: 0;
+}
+.post small {
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+.post p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-color);
+  border-top: 1px solid rgba(0,0,0,0.1);
+  font-size: 0.9rem;
+}
+footer a {
+  color: var(--accent-color);
+  text-decoration: none;
+  margin: 0 8px;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+  }
+}
+</style>
 </head>
 <body>
-  <header>
-    <h1>✨ The Thought Flow</h1>
-    <button class="theme-toggle" id="themeButton">🌙 Dark Mode</button>
-  </header>
+<header>
+<h1>✨ The Thought Flow</h1>
+<div>
+<button class="btn" id="themeButton">🌙 Dark Mode</button>
+<button class="btn" id="langButton">🇬🇧 English</button>
+</div>
+</header>
+<main id="content">
+<!-- Dynamic content goes here -->
+</main>
+<footer>
+<p>Made with ❤️ by a curious mind | © 2025 The Thought Flow</p>
+<p>
+<a href="#">About</a> • 
+<a href="#">Contact</a> • 
+<a href="#">Privacy</a>
+</p>
+</footer>
+<script>
+const themeButton = document.getElementById("themeButton");
+const langButton = document.getElementById("langButton");
+const content = document.getElementById("content");
 
-  <main>
+// Theme
+const currentTheme = localStorage.getItem("theme") || "light";
+document.documentElement.setAttribute("data-theme", currentTheme);
+themeButton.textContent = currentTheme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode";
+themeButton.addEventListener("click", () => {
+  const newTheme = document.documentElement.getAttribute("data-theme")==="light"?"dark":"light";
+  document.documentElement.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+  themeButton.textContent = newTheme==="light"?"🌙 Dark Mode":"☀️ Light Mode";
+});
+
+// Content
+const languages = {
+  en: {
+    introTitle: "Welcome to The Thought Flow Blog",
+    introText: "Exploring creativity, technology, and mindful living — one idea at a time.",
+    posts: [
+      {title:"The Rise of Creative Tech", date:"Oct 20, 2025 • 4 min read", paragraphs:[
+        "Technology and creativity are merging faster than ever. From AI-generated art to VR storytelling, the digital world is a new canvas for imagination.",
+        "Algorithms no longer replace artists—they collaborate with them, opening new creative possibilities.",
+        "Creators are experimenting with mixed media, blending traditional and digital art forms for unique experiences.",
+        "The future of creativity is co-created by humans and machines, forming an exciting partnership."
+      ]},
+      {title:"Why Simplicity Wins", date:"Oct 22, 2025 • 3 min read", paragraphs:[
+        "In design, less is always more. Simplicity lets your ideas breathe and stand out.",
+        "Clutter confuses the mind; clarity enhances understanding and impact.",
+        "Minimalism in writing, visuals, and life boosts focus and engagement.",
+        "The best content is purposeful, with each element serving a clear function."
+      ]},
+      {title:"Balancing the Online World", date:"Oct 24, 2025 • 5 min read", paragraphs:[
+        "We live online, but balance is key. Time offline resets your mind and improves focus.",
+        "Digital breaks help nurture creativity and prevent burnout.",
+        "Setting boundaries with devices creates mental clarity and space for reflection.",
+        "Mindful online usage allows meaningful connections without overwhelm."
+      ]},
+      {title:"Building Meaning in a Fast World", date:"Oct 26, 2025 • 4 min read", paragraphs:[
+        "Speed defines modern life, but meaning requires patience and intention.",
+        "Slowing down allows quality work and thoughtful creation to emerge.",
+        "Time spent reflecting enhances insight and decision-making.",
+        "Prioritizing depth over speed fosters a fulfilling and purposeful life."
+      ]},
+      {title:"Embracing Digital Minimalism", date:"Oct 28, 2025 • 4 min read", paragraphs:[
+        "Digital minimalism focuses on intentional technology use.",
+        "Reducing notifications and distractions improves mental clarity.",
+        "Streamlined tools allow creators to focus on what truly matters.",
+        "A minimalist digital lifestyle supports creativity, health, and productivity."
+      ]},
+      {title:"The Art of Mindful Productivity", date:"Oct 30, 2025 • 5 min read", paragraphs:[
+        "Mindful productivity balances output with presence and awareness.",
+        "Time-blocking and reflection enhance focus without stress.",
+        "Combining deep work with mindful breaks maximizes efficiency.",
+        "Awareness of your workflow helps maintain long-term creativity."
+      ]},
+      {title:"Creativity Beyond Screens", date:"Nov 1, 2025 • 4 min read", paragraphs:[
+        "Creativity isn’t limited to digital devices; offline work stimulates new ideas.",
+        "Sketching, writing by hand, or brainstorming in nature sparks innovation.",
+        "Physical activities can trigger unexpected creative insights.",
+        "Blending digital and offline processes leads to richer creative outcomes."
+      ]},
+      {title:"Learning from Global Perspectives", date:"Nov 3, 2025 • 3 min read", paragraphs:[
+        "Exposure to different cultures and ideas expands creativity.",
+        "Travel, reading, and conversations introduce fresh perspectives.",
+        "Understanding diverse approaches helps solve problems innovatively.",
+        "Collaboration across borders strengthens creative projects."
+      ]},
+      {title:"Sustainability and Tech", date:"Nov 5, 2025 • 4 min read", paragraphs:[
+        "Technology and sustainability can coexist when used thoughtfully.",
+        "Eco-friendly design in software and hardware reduces environmental impact.",
+        "Digital solutions can promote responsible resource usage.",
+        "Awareness of environmental implications leads to conscious creative choices."
+      ]},
+      {title:"The Future of Thoughtful Design", date:"Nov 7, 2025 • 5 min read", paragraphs:[
+        "Thoughtful design blends aesthetics, usability, and ethics.",
+        "Designers consider user experience, social impact, and sustainability.",
+        "Future innovation lies in human-centered, responsible design practices.",
+        "Balancing functionality with empathy creates products that truly matter."
+      ]}
+    ]
+  },
+  es: {
+    introTitle: "Bienvenido a The Thought Flow Blog",
+    introText: "Explorando la creatividad, la tecnología y la vida consciente — una idea a la vez.",
+    posts: [
+      {title:"El Auge de la Tecnología Creativa", date:"20 de octubre de 2025 • 4 min de lectura", paragraphs:[
+        "La tecnología y la creatividad se fusionan rápidamente. Desde el arte generado por IA hasta la narración en realidad virtual, el mundo digital es un nuevo lienzo para la imaginación.",
+        "Los algoritmos ya no reemplazan a los artistas, colaboran con ellos, abriendo nuevas posibilidades creativas.",
+        "Los creadores experimentan con medios mixtos, combinando arte tradicional y digital para experiencias únicas.",
+        "El futuro de la creatividad se co-crea entre humanos y máquinas, formando una asociación emocionante."
+      ]},
+      {title:"Por Qué Gana la Simplicidad", date:"22 de octubre de 2025 • 3 min de lectura", paragraphs:[
+        "En diseño, menos es siempre más. La simplicidad permite que tus ideas respiren y destaquen.",
+        "El desorden confunde la mente; la claridad mejora la comprensión y el impacto.",
+        "El minimalismo en escritura, visuales y vida aumenta el enfoque y la participación.",
+        "El mejor contenido es intencional, con cada elemento cumpliendo una función clara."
+      ]},
+      {title:"Equilibrando el Mundo en Línea", date:"24 de octubre de 2025 • 5 min de lectura", paragraphs:[
+        "Vivimos en línea, pero el equilibrio es clave. Tomar tiempo fuera de la red reinicia la mente y mejora el enfoque.",
+        "Los descansos digitales ayudan a nutrir la creatividad y prevenir el agotamiento.",
+        "Establecer límites con los dispositivos crea claridad mental y espacio para reflexionar.",
+        "El uso consciente de internet permite conexiones significativas sin abrumarse."
+      ]},
+      {title:"Construyendo Significado en un Mundo Rápido", date:"26 de octubre de 2025 • 4 min de lectura", paragraphs:[
+        "La velocidad define la vida moderna, pero el significado requiere paciencia e intención.",
+        "Disminuir el ritmo permite que emerja un trabajo de calidad y reflexivo.",
+        "El tiempo dedicado a reflexionar mejora la percepción y la toma de decisiones.",
+        "Priorizar la profundidad sobre la rapidez fomenta una vida plena y significativa."
+      ]},
+      {title:"Abrazando el Minimalismo Digital", date:"28 de octubre de 2025 • 4 min de lectura", paragraphs:[
+        "El minimalismo digital se centra en el uso intencional de la tecnología.",
+        "Reducir notificaciones y distracciones mejora la claridad mental.",
+        "Las herramientas optimizadas permiten a los creadores enfocarse en lo importante.",
+        "Un estilo de vida digital minimalista apoya la creatividad, la salud y la productividad."
+      ]},
+      {title:"El Arte de la Productividad Consciente", date:"30 de octubre de 2025 • 5 min de lectura", paragraphs:[
+        "La productividad consciente equilibra la producción con la presencia y la atención.",
+        "La planificación de tiempo y la reflexión mejoran el enfoque sin estrés.",
+        "Combinar trabajo profundo con pausas conscientes maximiza la eficiencia.",
+        "Ser consciente de tu flujo de trabajo mantiene la creatividad a largo plazo."
+      ]},
+      {title:"Creatividad Más Allá de las Pantallas", date:"1 de noviembre de 2025 • 4 min de lectura", paragraphs:[
+        "La creatividad no se limita a dispositivos digitales; el trabajo offline genera nuevas ideas.",
+        "Dibujar, escribir a mano o reflexionar en la naturaleza estimula la innovación.",
+        "Las actividades físicas pueden desencadenar perspectivas creativas inesperadas.",
+        "Combinar procesos digitales y offline genera resultados creativos más ricos."
+      ]},
+      {title:"Aprender de Perspectivas Globales", date:"3 de noviembre de 2025 • 3 min de lectura", paragraphs:[
+        "Exponerse a diferentes culturas e ideas expande la creatividad.",
+        "Viajar, leer y conversar introduce nuevas perspectivas.",
+        "Comprender enfoques diversos ayuda a resolver problemas de manera innovadora.",
+        "La colaboración internacional fortalece los proyectos creativos."
+      ]},
+      {title:"Sostenibilidad y Tecnología", date:"5 de noviembre de 2025 • 4 min de lectura", paragraphs:[
+        "La tecnología y la sostenibilidad pueden coexistir cuando se usan con cuidado.",
+        "El diseño ecológico en software y hardware reduce el impacto ambiental.",
+        "Las soluciones digitales pueden promover un uso responsable de recursos.",
+        "Ser consciente de las implicaciones ambientales lleva a decisiones creativas responsables."
+      ]},
+      {title:"El Futuro del Diseño Reflexivo", date:"7 de noviembre de 2025 • 5 min de lectura", paragraphs:[
+        "El diseño reflexivo combina estética, usabilidad y ética.",
+        "Los diseñadores consideran la experiencia del usuario, el impacto social y la sostenibilidad.",
+        "La innovación futura reside en prácticas de diseño centradas en el ser humano y responsables.",
+        "Equilibrar funcionalidad con empatía crea productos que realmente importan."
+      ]}
+    ]
+  }
+};
+
+let currentLang = localStorage.getItem("lang") || "en";
+
+function renderContent(lang){
+  const data = languages[lang];
+  content.innerHTML = `
     <section class="intro">
-      <h2>Welcome to The Thought Flow Blog</h2>
-      <p>Exploring creativity, technology, and mindful living — one idea at a time.  
-      Every article here blends curiosity with simplicity, giving you a spark of insight into the modern digital world.</p>
+      <h2>${data.introTitle}</h2>
+      <p>${data.introText}</p>
     </section>
+    ${data.posts.map(post => `
+      <article class="post">
+        <h2>${post.title}</h2>
+        <small>${post.date}</small>
+        ${post.paragraphs.map(p=>`<p>${p}</p>`).join('')}
+      </article>
+    `).join('')}
+  `;
+  langButton.textContent = lang==="en"?"🇪🇸 Español":"🇬🇧 English";
+}
 
-    <article class="post">
-      <h2>The Rise of Creative Tech</h2>
-      <small>Posted on Oct 20, 2025 • 4 min read</small>
-      <p>Technology and creativity are merging faster than ever. From AI-generated art to virtual reality storytelling, the digital world has become a new canvas for imagination.  
-      As algorithms evolve, they no longer replace artists — they collaborate with them. The future of creation isn’t human *or* machine — it’s both, together.</p>
-    </article>
+langButton.addEventListener("click",()=>{
+  currentLang = currentLang==="en"?"es":"en";
+  localStorage.setItem("lang",currentLang);
+  renderContent(currentLang);
+});
 
-    <article class="post">
-      <h2>Why Simplicity Wins</h2>
-      <small>Posted on Oct 22, 2025 • 3 min read</small>
-      <p>In design, less is always more. Simplicity allows your message to breathe, and your ideas to shine.  
-      Great blogs aren’t cluttered — they’re crafted. The same logic applies to life and work: clarity beats chaos. Every click, color, and sentence should serve a purpose.</p>
-    </article>
-
-    <article class="post">
-      <h2>Balancing the Online World</h2>
-      <small>Posted on Oct 24, 2025 • 5 min read</small>
-      <p>We live online — but balance is key. Taking time offline can reset your mind, boost focus, and unlock creativity.  
-      The best creators know when to disconnect, reflect, and breathe. True digital mastery means knowing when to step away from the screen.</p>
-    </article>
-
-    <article class="post">
-      <h2>Building Meaning in a Fast World</h2>
-      <small>Posted on Oct 26, 2025 • 4 min read</small>
-      <p>Speed defines our time — but meaning takes patience. Whether you’re designing, coding, or writing, slowing down lets quality rise.  
-      Thoughtfulness is the ultimate productivity hack. In a culture that celebrates “fast,” choosing depth is quietly revolutionary.</p>
-    </article>
-  </main>
-
-  <footer>
-    <p>Made with ❤️ by a curious mind | © 2025 The Thought Flow</p>
-    <p>
-      <a href="#">About</a> • 
-      <a href="#">Contact</a> • 
-      <a href="#">Privacy</a>
-    </p>
-  </footer>
-
-  <script>
-    const themeButton = document.getElementById("themeButton");
-    const currentTheme = localStorage.getItem("theme") || "light";
-    document.documentElement.setAttribute("data-theme", currentTheme);
-    themeButton.textContent = currentTheme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode";
-
-    themeButton.addEventListener("click", () => {
-      const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-      document.documentElement.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-      themeButton.textContent = newTheme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode";
-    });
-  </script>
+renderContent(currentLang);
+</script>
 </body>
 </html>
+
 
