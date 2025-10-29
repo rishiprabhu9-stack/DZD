@@ -1,146 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alex — Renovation & Construction</title>
 <style>
-:root {
-  --bg: #0e0e0e;
-  --card: #1a1a1a;
-  --text: #f5f5f5;
-  --muted: #b5b5b5;
-  --accent: #ff8c00;
-  --divider: #ff8c00;
-  --radius: 14px;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: 'Poppins', system-ui, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
+  margin:0; padding:0;
+  font-family:sans-serif;
+  background:#0e0e0e;
+  color:#f5f5f5;
 }
-
 header {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 2rem 3rem;
-  border-bottom: 4px solid var(--divider);
+  padding:2rem; border-bottom:4px solid #ff8c00;
+  display:flex; align-items:center; gap:1rem;
 }
-.brand { display: flex; align-items: center; gap: 1rem; }
 .logo {
-  background: linear-gradient(135deg, var(--accent), #ffb56b);
-  color: white; font-weight: 700; font-size: 2rem;
-  width: 60px; height: 60px; border-radius: var(--radius);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 6px 18px rgba(255,140,0,0.3);
+  background:#ff8c00; width:50px; height:50px;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:bold; color:white; border-radius:12px;
 }
-header h1 { font-size: 1.8rem; }
+.intro { text-align:center; padding:2rem; }
+.projects-row {
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:1rem; padding:2rem;
+  max-width:1200px; margin:auto;
+}
+.project img { width:100%; height:200px; object-fit:cover; display:block; }
+.project-content { padding:0.5rem; }
+.divider { height:4px; background:#ff8c00; margin:2rem auto; width:90%; }
+footer { text-align:center; padding:2rem; border-top:4px solid #ff8c00; color:#b5b5b5; }
 
-section { padding: 3rem 2rem; }
-.intro { text-align: center; max-width: 900px; margin: auto; }
-.intro h2 { color: var(--accent); font-size: 2.2rem; margin-bottom: 1rem; }
-.intro p { color: var(--muted); font-size: 1.1rem; }
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two images per row */
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 3rem auto;
-}
-
-.project {
-  background: var(--card);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-.project img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  display: block;
-}
-.project-content {
-  padding: 1.5rem;
-}
-.project h3 { color: var(--accent); font-size: 1.4rem; margin-bottom: .5rem; }
-.project p { color: var(--muted); font-size: 1rem; }
-
-.divider {
-  width: 90%;
-  height: 4px;
-  background: var(--divider);
-  margin: 4rem auto;
-  border-radius: 2px;
-  box-shadow: 0 0 10px rgba(255,140,0,0.4);
-}
-
-footer {
-  text-align: center;
-  padding: 3rem 1rem;
-  color: var(--muted);
-  border-top: 4px solid var(--divider);
-}
-
-/* Mobile: stack projects */
+/* mobile stack */
 @media(max-width:768px){
-  .projects-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .project img { height: 250px; }
+  .projects-row { grid-template-columns:1fr; }
+  .project img { height:180px; }
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="brand">
-    <div class="logo">A</div>
-    <h1>Alex — Renovation & Construction</h1>
-  </div>
+  <div class="logo">A</div>
+  <h1>Alex — Renovation & Construction</h1>
 </header>
 
 <section class="intro">
   <h2>Craft. Build. Restore.</h2>
-  <p>Professional renovation and remodeling by Alex.<br>Photos and contact email coming soon.</p>
+  <p>Professional renovation and remodeling by Alex.<br>Photos & email coming soon.</p>
 </section>
 
 <div class="divider"></div>
 
-<section class="projects-grid">
+<section class="projects-row">
   <div class="project">
-    <img src="https://via.placeholder.com/800x600?text=Kitchen+Renovation" alt="Kitchen Renovation">
-    <div class="project-content">
-      <h3>Kitchen Renovation</h3>
-      <p>Modern cabinet refinishing and premium countertops.</p>
-    </div>
+    <img src="https://via.placeholder.com/800x600?text=Kitchen" alt="Kitchen Renovation">
+    <div class="project-content"><h3>Kitchen</h3><p>Cabinets and countertops.</p></div>
   </div>
   <div class="project">
-    <img src="https://via.placeholder.com/800x600?text=Bathroom+Remodel" alt="Bathroom Remodel">
-    <div class="project-content">
-      <h3>Bathroom Remodel</h3>
-      <p>Custom tiling, waterproofing, and modern fixtures.</p>
-    </div>
+    <img src="https://via.placeholder.com/800x600?text=Bathroom" alt="Bathroom Remodel">
+    <div class="project-content"><h3>Bathroom</h3><p>Tiles and fixtures.</p></div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<section class="projects-grid">
+<section class="projects-row">
   <div class="project">
-    <img src="https://via.placeholder.com/800x600?text=Deck+Construction" alt="Deck Construction">
-    <div class="project-content">
-      <h3>Deck Construction</h3>
-      <p>Durable outdoor entertaining space with composite materials.</p>
-    </div>
+    <img src="https://via.placeholder.com/800x600?text=Deck" alt="Deck Construction">
+    <div class="project-content"><h3>Deck</h3><p>Outdoor space.</p></div>
   </div>
   <div class="project">
-    <img src="https://via.placeholder.com/800x600?text=Basement+Finish" alt="Basement Finish">
-    <div class="project-content">
-      <h3>Basement Finish</h3>
-      <p>Comfortable living area with insulation and finish carpentry.</p>
-    </div>
+    <img src="https://via.placeholder.com/800x600?text=Basement" alt="Basement Finish">
+    <div class="project-content"><h3>Basement</h3><p>Cozy living area.</p></div>
   </div>
 </section>
 
@@ -152,3 +85,4 @@ footer {
 
 </body>
 </html>
+
