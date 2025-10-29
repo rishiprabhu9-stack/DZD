@@ -25,6 +25,8 @@ body{
   -moz-osx-font-smoothing:grayscale;
   line-height:1.5;
 }
+
+/* Header */
 .header {
   display:flex;
   justify-content:space-between;
@@ -44,6 +46,8 @@ body{
   box-shadow:0 10px 28px rgba(255,140,0,0.18);
 }
 .header h1{font-size:1.6rem; margin:0}
+
+/* Intro */
 .intro {
   text-align:center;
   padding:3.25rem 1.25rem;
@@ -52,6 +56,8 @@ body{
 }
 .intro h2{ color:var(--accent); font-size:2.4rem; margin:0 0 .5rem 0; }
 .intro p{ color:var(--muted); margin:0; font-size:1.05rem; }
+
+/* Divider bar */
 .divider {
   width:88%;
   height:6px;
@@ -60,16 +66,18 @@ body{
   border-radius:4px;
   box-shadow:0 0 20px rgba(255,140,0,0.28);
 }
+
+/* Projects grid */
 .projects-grid {
-  <img class="before img-trigger" src="https://live.staticflickr.com/5163/5357981169_3d243d84bf_b.jpg" alt="Kitchen before">
-
-  <img class="after-img img-trigger" src="https://www.mydomaine.com/thmb/jZt5_PWHYC7F57Q_L-ucGwcGGao=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format/webp/RD_LaurelWay_0111_F-43c9ae05930b4c0682d130eee3ede5df.jpg" alt="Kitchen after">
-
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap:2.75rem;
   max-width:1600px;
   margin:2.25rem auto;
   padding:0 1.25rem;
 }
+
+/* Single project card */
 .project {
   background:var(--card);
   border-radius:var(--radius);
@@ -78,13 +86,21 @@ body{
   display:flex;
   flex-direction:column;
 }
+
+/* BEFORE/AFTER container */
 .before-after {
   position:relative;
   width:100%;
-  height:600px;
+  max-width:1000px;
+  aspect-ratio:16/9; /* responsive height */
   overflow:hidden;
   user-select:none;
   touch-action:none;
+  border-radius:16px;
+  margin:0 auto;
+}
+@media (max-width:600px){
+  .before-after { aspect-ratio:4/3; }
 }
 .before-after img {
   display:block;
@@ -93,6 +109,8 @@ body{
   object-fit:cover;
   vertical-align:middle;
 }
+
+/* Slider handle */
 .before-after .after {
   position:absolute; top:0; left:0;
   height:100%;
@@ -124,6 +142,8 @@ body{
   box-shadow:0 8px 20px rgba(0,0,0,0.4);
   pointer-events:none;
 }
+
+/* Project content */
 .project-content {
   padding:2rem;
 }
@@ -133,6 +153,8 @@ body{
   font-size:1.6rem;
 }
 .project-content p { margin:0; color:var(--muted); font-size:1rem; }
+
+/* Lightbox overlay */
 .lightbox-overlay {
   position:fixed; inset:0;
   background:rgba(0,0,0,0.92);
@@ -148,22 +170,23 @@ body{
 .lightbox-close {
   position:fixed; top:22px; right:28px; color:#fff; font-size:32px; cursor:pointer; z-index:10000;
 }
+
+/* Footer */
 .footer {
   padding:3rem 1rem; text-align:center; color:var(--muted);
   border-top:4px solid var(--divider);
   margin-top:2.5rem;
 }
+
+/* Responsive: collapse to 1 column at small widths */
 @media (max-width:980px){
   .projects-grid { grid-template-columns: 1fr; gap:2rem; padding:0 1rem; }
-  .before-after { height:420px; }
-}
-@media (max-width:520px){
-  .before-after { height:340px; }
 }
 </style>
 </head>
 <body>
 
+<!-- Header -->
 <header class="header">
   <div class="brand">
     <div class="logo">A</div>
@@ -171,6 +194,7 @@ body{
   </div>
 </header>
 
+<!-- Intro -->
 <section class="intro">
   <h2>Craft. Build. Restore.</h2>
   <p>Professional renovation and remodeling by Alex — serving Colorado. Photos & email coming soon.</p>
@@ -178,30 +202,27 @@ body{
 
 <div class="divider" aria-hidden="true"></div>
 
-<!-- Projects row 1 -->
+<!-- Projects: two per row -->
 <section class="projects-grid" aria-label="Projects row 1">
 
-  <!-- Kitchen Renovation -->
+  <!-- Project A: Kitchen -->
   <article class="project" aria-labelledby="proj-a-title">
     <div class="before-after" data-initial="50">
-      <img class="before img-trigger" 
-           src="https://images.squarespace-cdn.com/content/v1/4fcf5c8684aef9ce6e0a44b0/1431898955969-9F562ZOY0N0OM374L1TJ/Before++pic+of+ugly+cabinets" 
-           alt="Kitchen before">
+      <img class="before img-trigger" src="https://live.staticflickr.com/5163/5357981169_3d243d84bf_b.jpg" alt="Kitchen Before">
       <div class="after">
-        <img class="after-img img-trigger" 
-             src="https://www.mydomaine.com/thmb/kqpD_FfR-tqNAxxWuDCBVgZUpmY=/2000x0/filters:no_upscale():strip_icc()/RD_LaurelWay_0111_F-43c9ae05930b4c0682d130eee3ede5df.jpg" 
-             alt="Kitchen after">
+        <img class="after-img img-trigger" src="https://www.mydomaine.com/thmb/jZt5_PWHYC7F57Q_L-ucGwcGGao=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format/webp/RD_LaurelWay_0111_F-43c9ae05930b4c0682d130eee3ede5df.jpg" alt="Kitchen After">
       </div>
       <div class="slider-handle" aria-hidden="true"></div>
       <div class="slider-knob" aria-hidden="true"></div>
     </div>
+
     <div class="project-content">
       <h3 id="proj-a-title">Kitchen Renovation</h3>
       <p>Cabinets refinished, lighting improved, and premium counters installed.</p>
     </div>
   </article>
 
-  <!-- Bathroom Remodel (placeholder) -->
+  <!-- Project B: Bathroom -->
   <article class="project" aria-labelledby="proj-b-title">
     <div class="before-after" data-initial="50">
       <img class="before img-trigger" src="https://via.placeholder.com/1600x1000?text=Bathroom+Before" alt="Bathroom before">
@@ -211,130 +232,15 @@ body{
       <div class="slider-handle" aria-hidden="true"></div>
       <div class="slider-knob" aria-hidden="true"></div>
     </div>
+
     <div class="project-content">
       <h3 id="proj-b-title">Bathroom Remodel</h3>
       <p>Waterproofing, custom tile, and updated fixtures for a modern finish.</p>
     </div>
   </article>
-
 </section>
 
 <div class="divider" aria-hidden="true"></div>
 
-<!-- Projects row 2 (placeholders) -->
 <section class="projects-grid" aria-label="Projects row 2">
-  <article class="project" aria-labelledby="proj-c-title">
-    <div class="before-after" data-initial="50">
-      <img class="before img-trigger" src="https://via.placeholder.com/1600x1000?text=Deck+Before" alt="Deck before">
-      <div class="after">
-        <img class="after-img img-trigger" src="https://via.placeholder.com/1600x1000?text=Deck+After" alt="Deck after">
-      </div>
-      <div class="slider-handle" aria-hidden="true"></div>
-      <div class="slider-knob" aria-hidden="true"></div>
-    </div>
-    <div class="project-content">
-      <h3 id="proj-c-title">Deck Construction</h3>
-      <p>Durable outdoor entertaining space built with composite materials.</p>
-    </div>
-  </article>
-  <article class="project" aria-labelledby="proj-d-title">
-    <div class="before-after" data-initial="50">
-      <img class="before img-trigger" src="https://via.placeholder.com/1600x1000?text=Basement+Before" alt="Basement before">
-      <div class="after">
-        <img class="after-img img-trigger" src="https://via.placeholder.com/1600x1000?text=Basement+After" alt="Basement after">
-      </div>
-      <div class="slider-handle" aria-hidden="true"></div>
-      <div class="slider-knob" aria-hidden="true"></div>
-    </div>
-    <div class="project-content">
-      <h3 id="proj-d-title">Basement Finish</h3>
-      <p>Converted basement with insulation, drywall, and comfortable lighting.</p>
-    </div>
-  </article>
-</section>
-
-<div class="divider" aria-hidden="true"></div>
-
-<footer class="footer">
-  © 2025 Alex • Photos & email coming soon • Colorado
-</footer>
-
-<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
-  <div class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</div>
-  <img id="lightboxImage" src="" alt="Enlarged project image">
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-
-  document.querySelectorAll('.before-after').forEach(container => {
-    const after = container.querySelector('.after');
-    const handle = container.querySelector('.slider-handle');
-    const knob = container.querySelector('.slider-knob');
-    const initialPct = parseFloat(container.dataset.initial || 50);
-
-    const setSplit = (px) => {
-      after.style.width = px + 'px';
-      handle.style.left = px + 'px';
-      knob.style.left = px + 'px';
-    };
-
-    const init = () => {
-      const rect = container.getBoundingClientRect();
-      setSplit((initialPct/100)*rect.width);
-    };
-    init();
-    window.addEventListener('resize', init);
-
-    let dragging = false;
-    container.addEventListener('pointerdown', e => { dragging=true; container.setPointerCapture && container.setPointerCapture(e.pointerId); e.preventDefault(); });
-    window.addEventListener('pointerup', e => { dragging=false; try{container.releasePointerCapture && container.releasePointerCapture(e.pointerId);}catch{} });
-    window.addEventListener('pointermove', e => {
-      if(!dragging) return;
-      const rect=container.getBoundingClientRect();
-      let x=e.clientX-rect.left;
-      x=clamp(x,0,rect.width);
-      setSplit(x);
-    });
-    container.addEventListener('touchstart', e => { dragging=true; e.preventDefault(); }, {passive:false});
-    container.addEventListener('touchend', () => { dragging=false; });
-    container.addEventListener('touchmove', e => {
-      if(!dragging) return;
-      let touch = e.touches[0];
-      const rect=container.getBoundingClientRect();
-      let x=touch.clientX-rect.left;
-      x=clamp(x,0,rect.width);
-      setSplit(x);
-      e.preventDefault();
-    }, {passive:false});
-
-    container.tabIndex = 0;
-    container.addEventListener('keydown', ev => {
-      const rect=container.getBoundingClientRect();
-      let current=parseFloat(after.style.width) || rect.width/2;
-      if(ev.key==='ArrowLeft'){ current=clamp(current-20,0,rect.width); setSplit(current); }
-      if(ev.key==='ArrowRight'){ current=clamp(current+20,0,rect.width); setSplit(current); }
-    });
-  });
-
-  const lightbox=document.getElementById('lightbox');
-  const lightboxImg=document.getElementById('lightboxImage');
-  const lightboxClose=document.getElementById('lightboxClose');
-
-  document.querySelectorAll('.img-trigger').forEach(img=>{
-    img.style.cursor='zoom-in';
-    img.addEventListener('click', ()=>{ lightboxImg.src=img.src; lightbox.style.display='flex'; lightbox.setAttribute('aria-hidden','false'); });
-  });
-
-  const closeLightbox=()=>{ lightbox.style.display='none'; lightbox.setAttribute('aria-hidden','true'); lightboxImg.src=''; };
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', e=>{ if(e.target===lightbox) closeLightbox(); });
-  window.addEventListener('keydown', e=>{ if(e.key==='Escape' && lightbox.style.display==='flex') closeLightbox(); });
-});
-</script>
-
-</body>
-</html>
-
-
+  <!-- Project C:
