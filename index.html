@@ -4,7 +4,6 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Alex — Renovation & Construction</title>
-<link rel="icon" href="data:,">
 <style>
 :root {
   --bg:#0e0e0e;
@@ -13,103 +12,77 @@
   --muted:#b5b5b5;
   --accent:#ff8c00;
   --divider:#ff8c00;
-  --radius:18px;
+  --radius:14px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{
   font-family:'Poppins',system-ui,sans-serif;
   background:var(--bg);
   color:var(--text);
-  line-height:1.7;
+  line-height:1.6;
 }
 header{
   display:flex;justify-content:space-between;align-items:center;
-  padding:3rem 4rem;
+  padding:2rem 3rem;
   border-bottom:4px solid var(--divider);
 }
 .brand{display:flex;align-items:center;gap:1rem;}
 .logo{
   background:linear-gradient(135deg,var(--accent),#ffb56b);
   color:white;font-weight:700;font-size:2rem;
-  width:70px;height:70px;border-radius:18px;
+  width:60px;height:60px;border-radius:14px;
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 24px rgba(255,140,0,0.3);
+  box-shadow:0 6px 18px rgba(255,140,0,0.3);
 }
-header h1{font-size:2rem;}
+header h1{font-size:1.8rem;}
+section{padding:3rem 2rem;}
+.intro{text-align:center; max-width:900px; margin:auto;}
+.intro h2{color:var(--accent); font-size:2.2rem; margin-bottom:1rem;}
+.intro p{color:var(--muted); font-size:1.1rem;}
 
-section{
-  padding:6rem 2rem;
-  border-bottom:3px solid var(--divider);
-}
-.intro{
-  max-width:1000px;
-  margin:auto;
-  text-align:center;
-}
-.intro h2{
-  color:var(--accent);
-  font-size:2.8rem;
-  margin-bottom:1rem;
-}
-.intro p{
-  color:var(--muted);
-  font-size:1.2rem;
-  max-width:700px;
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(45%,1fr));
+  gap:2rem;
+  max-width:1200px;
   margin:auto;
 }
 
 .project{
-  max-width:1300px;
-  margin:6rem auto;
   background:var(--card);
   border-radius:var(--radius);
   overflow:hidden;
-  box-shadow:0 8px 30px rgba(0,0,0,0.35);
+  box-shadow:0 6px 20px rgba(0,0,0,0.3);
 }
 .project img{
   width:100%;
-  height:70vh;           /* Tall, spacious visuals */
+  height:300px;
   object-fit:cover;
   display:block;
 }
 .project-content{
-  padding:3rem 4rem;
-  text-align:left;
+  padding:1.5rem;
 }
-.project h3{
-  font-size:2rem;
-  color:var(--accent);
-  margin-bottom:1rem;
-}
-.project p{
-  font-size:1.1rem;
-  color:var(--muted);
-}
-
+.project h3{color:var(--accent); font-size:1.4rem; margin-bottom:.5rem;}
+.project p{color:var(--muted); font-size:1rem;}
 .divider{
-  width:80%;
-  height:5px;
+  width:90%;
+  height:4px;
   background:var(--divider);
-  margin:6rem auto;
-  border-radius:3px;
-  box-shadow:0 0 12px rgba(255,140,0,0.5);
+  margin:4rem auto;
+  border-radius:2px;
+  box-shadow:0 0 10px rgba(255,140,0,0.4);
 }
-
 footer{
   text-align:center;
-  padding:4rem 1rem;
+  padding:3rem 1rem;
   color:var(--muted);
-  font-size:1.1rem;
   border-top:4px solid var(--divider);
-  background:var(--card);
 }
 
-@media(max-width:900px){
-  header{padding:2rem;}
-  .logo{width:55px;height:55px;font-size:1.5rem;}
-  .intro h2{font-size:2rem;}
-  .project-content{padding:2rem;}
-  .project img{height:50vh;}
+@media(max-width:768px){
+  .projects-grid{grid-template-columns:1fr; gap:1.5rem;}
+  .project img{height:250px;}
 }
 </style>
 </head>
@@ -124,47 +97,44 @@ footer{
 
 <section class="intro">
   <h2>Craft. Build. Restore.</h2>
-  <p>Professional renovation and remodeling by Alex.  
-  Photos and contact email coming soon.</p>
+  <p>Professional renovation and remodeling by Alex.<br>Photos and contact email coming soon.</p>
 </section>
 
 <div class="divider"></div>
 
-<section class="project">
-  <img src="https://via.placeholder.com/1920x1080?text=Kitchen+Renovation" alt="Kitchen Renovation">
-  <div class="project-content">
-    <h3>Kitchen Renovation</h3>
-    <p>Modern cabinet refinishing, lighting upgrades, and premium countertops crafted with precision.</p>
+<section class="projects-grid">
+  <div class="project">
+    <img src="https://via.placeholder.com/800x600?text=Kitchen+Renovation" alt="Kitchen Renovation">
+    <div class="project-content">
+      <h3>Kitchen Renovation</h3>
+      <p>Modern cabinet refinishing and premium countertops.</p>
+    </div>
+  </div>
+  <div class="project">
+    <img src="https://via.placeholder.com/800x600?text=Bathroom+Remodel" alt="Bathroom Remodel">
+    <div class="project-content">
+      <h3>Bathroom Remodel</h3>
+      <p>Custom tiling, waterproofing, and modern fixtures.</p>
+    </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<section class="project">
-  <img src="https://via.placeholder.com/1920x1080?text=Bathroom+Remodel" alt="Bathroom Remodel">
-  <div class="project-content">
-    <h3>Bathroom Remodel</h3>
-    <p>Custom tiling, waterproof installations, and refined fixtures designed for modern living.</p>
+<section class="projects-grid">
+  <div class="project">
+    <img src="https://via.placeholder.com/800x600?text=Deck+Construction" alt="Deck Construction">
+    <div class="project-content">
+      <h3>Deck Construction</h3>
+      <p>Durable outdoor entertaining space with composite materials.</p>
+    </div>
   </div>
-</section>
-
-<div class="divider"></div>
-
-<section class="project">
-  <img src="https://via.placeholder.com/1920x1080?text=Deck+Construction" alt="Deck Construction">
-  <div class="project-content">
-    <h3>Deck Construction</h3>
-    <p>Durable outdoor spaces using composite materials, blending craftsmanship and longevity.</p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<section class="project">
-  <img src="https://via.placeholder.com/1920x1080?text=Basement+Finish" alt="Basement Finish">
-  <div class="project-content">
-    <h3>Basement Finish</h3>
-    <p>Transforming underused basements into functional, comfortable living areas with clean design.</p>
+  <div class="project">
+    <img src="https://via.placeholder.com/800x600?text=Basement+Finish" alt="Basement Finish">
+    <div class="project-content">
+      <h3>Basement Finish</h3>
+      <p>Comfortable living area with insulation and finish carpentry.</p>
+    </div>
   </div>
 </section>
 
@@ -174,5 +144,6 @@ footer{
 
 </body>
 </html>
+
 
 
