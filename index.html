@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<
-   head>
+<head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Alex — Renovation & Construction</title>
 <style>
-/* --------------------------
-   Theme & layout variables
-   -------------------------- */
 :root{
   --bg: #0e0e0e;
   --card: #1a1a1a;
@@ -18,8 +14,6 @@
   --divider: #ff8c00;
   --radius: 16px;
 }
-
-/* Reset / base */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -31,8 +25,6 @@ body{
   -moz-osx-font-smoothing:grayscale;
   line-height:1.5;
 }
-
-/* Header */
 .header {
   display:flex;
   justify-content:space-between;
@@ -48,13 +40,10 @@ body{
   width:68px; height:68px; border-radius:14px;
   background:linear-gradient(135deg,var(--accent),#ffb56b);
   display:flex; align-items:center; justify-content:center;
-
   font-weight:700; color:white; font-size:1.4rem;
   box-shadow:0 10px 28px rgba(255,140,0,0.18);
 }
 .header h1{font-size:1.6rem; margin:0}
-
-/* Intro */
 .intro {
   text-align:center;
   padding:3.25rem 1.25rem;
@@ -63,57 +52,22 @@ body{
 }
 .intro h2{ color:var(--accent); font-size:2.4rem; margin:0 0 .5rem 0; }
 .intro p{ color:var(--muted); margin:0; font-size:1.05rem; }
-
-/* Divider bar between rows */
-<article class="project" aria-labelledby="proj-a-title">
-  <div class="before-after" data-initial="50">
-    <!-- BEFORE image (clickable) -->
-    <img class="before img-trigger" 
-         src="https://images.squarespace-cdn.com/content/v1/4fcf5c8684aef9ce6e0a44b0/1431898955969-9F562ZOY0N0OM374L1TJ/Before++pic+of+ugly+cabinets" 
-         alt="Kitchen before">
-    
-    <!-- AFTER overlay -->
-    <div class="after">
-      <img class="after-img img-trigger" 
-           src="https://www.mydomaine.com/thmb/kqpD_FfR-tqNAxxWuDCBVgZUpmY=/2000x0/filters:no_upscale():strip_icc()/RD_LaurelWay_0111_F-43c9ae05930b4c0682d130eee3ede5df.jpg" 
-           alt="Kitchen after">
-    </div>
-
-    <!-- slider visual -->
-    <div class="slider-handle" aria-hidden="true"></div>
-    <div class="slider-knob" aria-hidden="true"></div>
-  </div>
-
-  <div class="project-content">
-    <h3 id="proj-a-title">Kitchen Renovation</h3>
-    <p>Cabinets refinished, lighting improved, and premium counters installed.</p>
-  </div>
-</article>
-
-
-<div class="after">
-  <img class="after-img img-trigger" 
-       src="https://www.mydomaine.com/thmb/kqpD_FfR-tqNAxxWuDCBVgZUpmY=/2000x0/filters:no_upscale():strip_icc()/RD_LaurelWay_0111_F-43c9ae05930b4c0682d130eee3ede5df.jpg" 
-       alt="Kitchen after">
-</div>
-
-<!-- slider visual -->
-<div class="slider-handle" aria-hidden="true"></div>
-<div class="slider-knob" aria-hidden="true"></div>
-
+.divider {
+  width:88%;
+  height:6px;
+  background:var(--divider);
+  margin:3.25rem auto;
+  border-radius:4px;
+  box-shadow:0 0 20px rgba(255,140,0,0.28);
 }
-
-/* Projects grid: two large panels per row */
 .projects-grid {
   display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* guarantee 2 per row */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap:2.75rem;
-  max-width:1600px;           /* wider container so panels feel BIG */
+  max-width:1600px;
   margin:2.25rem auto;
   padding:0 1.25rem;
 }
-
-/* Single project card */
 .project {
   background:var(--card);
   border-radius:var(--radius);
@@ -122,30 +76,27 @@ body{
   display:flex;
   flex-direction:column;
 }
-
-/* BEFORE/AFTER container: bigger height (50% larger than previous) */
 .before-after {
   position:relative;
   width:100%;
-  height:600px;              /* big, impactful images */
+  height:600px;
   overflow:hidden;
   user-select:none;
-  touch-action:none;         /* we control touch handling */
+  touch-action:none;
 }
-
-/* Images fill container */
-
+.before-after img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  vertical-align:middle;
 }
-
-/* The 'after' overlay that masks the right side */
 .before-after .after {
   position:absolute; top:0; left:0;
   height:100%;
-  width:50%;                 /* initialized to middle by JS as well */
+  width:50%;
   overflow:hidden;
 }
-
-/* Visible slider handle (bar + knob) */
 .before-after .slider-handle {
   position:absolute;
   top:0;
@@ -153,7 +104,7 @@ body{
   transform:translateX(-50%);
   width:6px;
   height:100%;
-  background:rgba(255,140,0,0.95); /* accent bar */
+  background:rgba(255,140,0,0.95);
   z-index:20;
   box-shadow:0 0 0 3px rgba(255,140,0,0.06);
   cursor:ew-resize;
@@ -169,10 +120,8 @@ body{
   border:4px solid var(--accent);
   z-index:25;
   box-shadow:0 8px 20px rgba(0,0,0,0.4);
-  pointer-events:none; /* knob follows handle */
+  pointer-events:none;
 }
-
-/* Project content */
 .project-content {
   padding:2rem;
 }
@@ -182,8 +131,6 @@ body{
   font-size:1.6rem;
 }
 .project-content p { margin:0; color:var(--muted); font-size:1rem; }
-
-/* Lightbox overlay (always top) */
 .lightbox-overlay {
   position:fixed; inset:0;
   background:rgba(0,0,0,0.92);
@@ -199,15 +146,11 @@ body{
 .lightbox-close {
   position:fixed; top:22px; right:28px; color:#fff; font-size:32px; cursor:pointer; z-index:10000;
 }
-
-/* Footer */
 .footer {
   padding:3rem 1rem; text-align:center; color:var(--muted);
   border-top:4px solid var(--divider);
   margin-top:2.5rem;
 }
-
-/* Responsive: collapse to 1 column at small widths */
 @media (max-width:980px){
   .projects-grid { grid-template-columns: 1fr; gap:2rem; padding:0 1rem; }
   .before-after { height:420px; }
@@ -219,7 +162,6 @@ body{
 </head>
 <body>
 
-<!-- Header -->
 <header class="header">
   <div class="brand">
     <div class="logo">A</div>
@@ -227,7 +169,6 @@ body{
   </div>
 </header>
 
-<!-- Intro -->
 <section class="intro">
   <h2>Craft. Build. Restore.</h2>
   <p>Professional renovation and remodeling by Alex — serving Colorado. Photos & email coming soon.</p>
@@ -235,30 +176,30 @@ body{
 
 <div class="divider" aria-hidden="true"></div>
 
-<!-- Projects: two per row -->
+<!-- Projects row 1 -->
 <section class="projects-grid" aria-label="Projects row 1">
-  <!-- Project A -->
+
+  <!-- Kitchen Renovation -->
   <article class="project" aria-labelledby="proj-a-title">
     <div class="before-after" data-initial="50">
-      <!-- BEFORE image (clickable) -->
-      <img class="before img-trigger" src="https://via.placeholder.com/1600x1000?text=Kitchen+Before" alt="Kitchen before">
-      <!-- AFTER overlay -->
+      <img class="before img-trigger" 
+           src="https://images.squarespace-cdn.com/content/v1/4fcf5c8684aef9ce6e0a44b0/1431898955969-9F562ZOY0N0OM374L1TJ/Before++pic+of+ugly+cabinets" 
+           alt="Kitchen before">
       <div class="after">
-        <img class="after-img img-trigger" src="https://via.placeholder.com/1600x1000?text=Kitchen+After" alt="Kitchen after">
+        <img class="after-img img-trigger" 
+             src="https://www.mydomaine.com/thmb/kqpD_FfR-tqNAxxWuDCBVgZUpmY=/2000x0/filters:no_upscale():strip_icc()/RD_LaurelWay_0111_F-43c9ae05930b4c0682d130eee3ede5df.jpg" 
+             alt="Kitchen after">
       </div>
-
-      <!-- slider visual -->
       <div class="slider-handle" aria-hidden="true"></div>
       <div class="slider-knob" aria-hidden="true"></div>
     </div>
-
     <div class="project-content">
       <h3 id="proj-a-title">Kitchen Renovation</h3>
       <p>Cabinets refinished, lighting improved, and premium counters installed.</p>
     </div>
   </article>
 
-  <!-- Project B -->
+  <!-- Bathroom Remodel (placeholder) -->
   <article class="project" aria-labelledby="proj-b-title">
     <div class="before-after" data-initial="50">
       <img class="before img-trigger" src="https://via.placeholder.com/1600x1000?text=Bathroom+Before" alt="Bathroom before">
@@ -268,18 +209,18 @@ body{
       <div class="slider-handle" aria-hidden="true"></div>
       <div class="slider-knob" aria-hidden="true"></div>
     </div>
-
     <div class="project-content">
       <h3 id="proj-b-title">Bathroom Remodel</h3>
       <p>Waterproofing, custom tile, and updated fixtures for a modern finish.</p>
     </div>
   </article>
+
 </section>
 
 <div class="divider" aria-hidden="true"></div>
 
+<!-- Projects row 2 (placeholders) -->
 <section class="projects-grid" aria-label="Projects row 2">
-  <!-- Project C -->
   <article class="project" aria-labelledby="proj-c-title">
     <div class="before-after" data-initial="50">
       <img class="before img-trigger" src="https://via.placeholder.com/1600x1000?text=Deck+Before" alt="Deck before">
@@ -289,14 +230,11 @@ body{
       <div class="slider-handle" aria-hidden="true"></div>
       <div class="slider-knob" aria-hidden="true"></div>
     </div>
-
     <div class="project-content">
       <h3 id="proj-c-title">Deck Construction</h3>
       <p>Durable outdoor entertaining space built with composite materials.</p>
     </div>
   </article>
-
-  <!-- Project D -->
   <article class="project" aria-labelledby="proj-d-title">
     <div class="before-after" data-initial="50">
       <img class="before img-trigger" src="https://via.placeholder.com/1600x1000?text=Basement+Before" alt="Basement before">
@@ -306,7 +244,6 @@ body{
       <div class="slider-handle" aria-hidden="true"></div>
       <div class="slider-knob" aria-hidden="true"></div>
     </div>
-
     <div class="project-content">
       <h3 id="proj-d-title">Basement Finish</h3>
       <p>Converted basement with insulation, drywall, and comfortable lighting.</p>
@@ -316,139 +253,86 @@ body{
 
 <div class="divider" aria-hidden="true"></div>
 
-<!-- Footer -->
 <footer class="footer">
   © 2025 Alex • Photos & email coming soon • Colorado
 </footer>
 
-<!-- Lightbox -->
 <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
   <div class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</div>
   <img id="lightboxImage" src="" alt="Enlarged project image">
 </div>
 
 <script>
-/* Run after DOM ready */
 document.addEventListener('DOMContentLoaded', () => {
-
-  /* ----------------------------
-     Helper: clamp
-     ---------------------------- */
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
-  /* ----------------------------
-     Initialize sliders
-     ---------------------------- */
   document.querySelectorAll('.before-after').forEach(container => {
     const after = container.querySelector('.after');
     const handle = container.querySelector('.slider-handle');
     const knob = container.querySelector('.slider-knob');
-
-    // Set initial split (in %)
     const initialPct = parseFloat(container.dataset.initial || 50);
+
     const setSplit = (px) => {
       after.style.width = px + 'px';
       handle.style.left = px + 'px';
       knob.style.left = px + 'px';
     };
 
-    // Set initial sizes on load and on resize
     const init = () => {
       const rect = container.getBoundingClientRect();
-      const startPx = (initialPct / 100) * rect.width;
-      setSplit(startPx);
+      setSplit((initialPct/100)*rect.width);
     };
-
-    // Update when page loads and when the window resizes
     init();
     window.addEventListener('resize', init);
 
-    /* Drag logic with pointer events for reliability */
     let dragging = false;
-
-    const onPointerDown = (e) => {
-      dragging = true;
-      container.setPointerCapture && container.setPointerCapture(e.pointerId);
+    container.addEventListener('pointerdown', e => { dragging=true; container.setPointerCapture && container.setPointerCapture(e.pointerId); e.preventDefault(); });
+    window.addEventListener('pointerup', e => { dragging=false; try{container.releasePointerCapture && container.releasePointerCapture(e.pointerId);}catch{} });
+    window.addEventListener('pointermove', e => {
+      if(!dragging) return;
+      const rect=container.getBoundingClientRect();
+      let x=e.clientX-rect.left;
+      x=clamp(x,0,rect.width);
+      setSplit(x);
+    });
+    container.addEventListener('touchstart', e => { dragging=true; e.preventDefault(); }, {passive:false});
+    container.addEventListener('touchend', () => { dragging=false; });
+    container.addEventListener('touchmove', e => {
+      if(!dragging) return;
+      let touch = e.touches[0];
+      const rect=container.getBoundingClientRect();
+      let x=touch.clientX-rect.left;
+      x=clamp(x,0,rect.width);
+      setSplit(x);
       e.preventDefault();
-    };
-    const onPointerUp = (e) => {
-      dragging = false;
-      try { container.releasePointerCapture && container.releasePointerCapture(e.pointerId); } catch {}
-    };
-    const onPointerMove = (e) => {
-      if(!dragging) return;
-      const rect = container.getBoundingClientRect();
-      let x = e.clientX - rect.left;
-      x = clamp(x, 0, rect.width);
-      setSplit(x);
-    };
-
-    // Use pointer events if available (better cross-device)
-    container.addEventListener('pointerdown', onPointerDown);
-    window.addEventListener('pointerup', onPointerUp);
-    window.addEventListener('pointermove', onPointerMove);
-
-    // Also support touch fallback (some older browsers)
-    container.addEventListener('touchstart', (ev) => {
-      dragging = true; ev.preventDefault();
-    }, {passive:false});
-    container.addEventListener('touchend', () => { dragging = false; });
-    container.addEventListener('touchmove', (ev) => {
-      if(!dragging) return;
-      const touch = ev.touches[0];
-      const rect = container.getBoundingClientRect();
-      let x = touch.clientX - rect.left;
-      x = clamp(x, 0, rect.width);
-      setSplit(x);
-      ev.preventDefault();
     }, {passive:false});
 
-    // Accessibility: allow keyboard left/right to nudge the slider when focused
     container.tabIndex = 0;
-    container.addEventListener('keydown', (ev) => {
-      const rect = container.getBoundingClientRect();
-      let current = parseFloat(after.style.width) || rect.width/2;
-      if(ev.key === 'ArrowLeft') { current = clamp(current - 20, 0, rect.width); setSplit(current); }
-      if(ev.key === 'ArrowRight') { current = clamp(current + 20, 0, rect.width); setSplit(current); }
+    container.addEventListener('keydown', ev => {
+      const rect=container.getBoundingClientRect();
+      let current=parseFloat(after.style.width) || rect.width/2;
+      if(ev.key==='ArrowLeft'){ current=clamp(current-20,0,rect.width); setSplit(current); }
+      if(ev.key==='ArrowRight'){ current=clamp(current+20,0,rect.width); setSplit(current); }
     });
   });
 
-  /* ----------------------------
-     Lightbox logic
-     ---------------------------- */
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImage');
-  const lightboxClose = document.getElementById('lightboxClose');
+  const lightbox=document.getElementById('lightbox');
+  const lightboxImg=document.getElementById('lightboxImage');
+  const lightboxClose=document.getElementById('lightboxClose');
 
-  // Open lightbox when any .img-trigger is clicked
-  document.querySelectorAll('.img-trigger').forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', (e) => {
-      // Choose the natural src (use src from clicked image)
-      lightboxImg.src = img.src;
-      lightbox.style.display = 'flex';
-      lightbox.setAttribute('aria-hidden','false');
-    });
+  document.querySelectorAll('.img-trigger').forEach(img=>{
+    img.style.cursor='zoom-in';
+    img.addEventListener('click', ()=>{ lightboxImg.src=img.src; lightbox.style.display='flex'; lightbox.setAttribute('aria-hidden','false'); });
   });
 
-  // Close handlers
-  const closeLightbox = () => {
-    lightbox.style.display = 'none';
-    lightbox.setAttribute('aria-hidden','true');
-    lightboxImg.src = '';
-  };
+  const closeLightbox=()=>{ lightbox.style.display='none'; lightbox.setAttribute('aria-hidden','true'); lightboxImg.src=''; };
   lightboxClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => {
-    if(e.target === lightbox) closeLightbox();
-  });
-
-  // Escape key closes
-  window.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape' && lightbox.style.display === 'flex') closeLightbox();
-  });
-
+  lightbox.addEventListener('click', e=>{ if(e.target===lightbox) closeLightbox(); });
+  window.addEventListener('keydown', e=>{ if(e.key==='Escape' && lightbox.style.display==='flex') closeLightbox(); });
 });
 </script>
+
 </body>
 </html>
+
 
