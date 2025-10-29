@@ -6,181 +6,173 @@
 <title>Alex — Renovation & Construction</title>
 <link rel="icon" href="data:,">
 <style>
-:root{
-  --bg:#fafafa;
-  --card:#ffffff;
-  --text:#111827;
-  --muted:#6b7280;
-  --accent:#ff8c00; 
-  --radius:14px;
-  --section-bg:#f4f4f4;
+:root {
+  --bg:#0e0e0e;
+  --card:#1a1a1a;
+  --text:#f5f5f5;
+  --muted:#b5b5b5;
+  --accent:#ff8c00;
+  --divider:#ff8c00;
+  --radius:18px;
 }
-[data-theme="dark"]{
-  --bg:#0b0f12;
-  --card:#0f1720;
-  --text:#e6eef8;
-  --muted:#9aa6b2;
-  --section-bg:#131a22;
-}
-*{box-sizing:border-box;}
+*{box-sizing:border-box;margin:0;padding:0;}
 body{
-  margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Poppins",sans-serif;
-  background:var(--bg); color:var(--text); transition:background .22s ease,color .22s ease;
+  font-family:'Poppins',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
 }
 header{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:1.2rem 2rem;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:3rem 4rem;
+  border-bottom:4px solid var(--divider);
 }
-.brand{display:flex; align-items:center; gap:1rem;}
-.badge{
-  width:50px; height:50px; border-radius:14px;
+.brand{display:flex;align-items:center;gap:1rem;}
+.logo{
   background:linear-gradient(135deg,var(--accent),#ffb56b);
-  display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:1.2rem;
-  box-shadow:0 6px 18px rgba(255,138,0,0.15);
+  color:white;font-weight:700;font-size:2rem;
+  width:70px;height:70px;border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(255,140,0,0.3);
 }
-.title h1{margin:0; font-size:1.2rem;}
-.title p{margin:0; font-size:.9rem; color:var(--muted);}
-.controls{display:flex; gap:.5rem; align-items:center;}
-.btn{
-  background:var(--accent); color:white; border:none; padding:.55rem 1rem; border-radius:12px;
-  cursor:pointer; font-weight:600; font-size:.95rem;
-}
-.btn.alt{background:transparent; color:var(--text); border:1px solid rgba(0,0,0,0.08);}
+header h1{font-size:2rem;}
 
-section{padding:2.5rem 2rem; border-radius:var(--radius); margin-bottom:2rem;}
-.section-bg{background:var(--section-bg);}
-.intro-left h2{margin:0 0 .6rem 0; color:var(--accent); font-size:1.5rem;}
-.intro-left p{margin:0; color:var(--muted); font-size:1.05rem; line-height:1.6;}
-.intro-right{display:flex; flex-direction:column; gap:.6rem; align-items:flex-end;}
-.placeholder{font-size:1rem; color:var(--muted);}
+section{
+  padding:6rem 2rem;
+  border-bottom:3px solid var(--divider);
+}
+.intro{
+  max-width:1000px;
+  margin:auto;
+  text-align:center;
+}
+.intro h2{
+  color:var(--accent);
+  font-size:2.8rem;
+  margin-bottom:1rem;
+}
+.intro p{
+  color:var(--muted);
+  font-size:1.2rem;
+  max-width:700px;
+  margin:auto;
+}
 
-.grid{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:1.2rem; justify-content:center;
+.project{
+  max-width:1300px;
+  margin:6rem auto;
+  background:var(--card);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:0 8px 30px rgba(0,0,0,0.35);
 }
-.item{
-  background:var(--card); border-radius:var(--radius); padding:1rem; display:flex; gap:1rem; align-items:center;
-  box-shadow:0 12px 28px rgba(2,6,23,0.05);
+.project img{
+  width:100%;
+  height:70vh;           /* Tall, spacious visuals */
+  object-fit:cover;
+  display:block;
 }
-.thumb{width:110px; height:110px; border-radius:10px; object-fit:cover; flex-shrink:0;}
-.meta{display:flex; flex-direction:column;}
-.meta .t{font-weight:700; color:var(--text); font-size:1.1rem; margin-bottom:.2rem;}
-.meta .s{font-size:.9rem; color:var(--muted); line-height:1.3;}
-footer{padding:2rem; text-align:center; color:var(--muted); font-size:.9rem;}
-@media (max-width:760px){
-  .intro-left, .intro-right{width:100%; text-align:left;}
-  .intro-right{align-items:flex-start;}
-  .item{flex-direction:column; align-items:flex-start;}
-  .thumb{width:100%; height:100vh;}
+.project-content{
+  padding:3rem 4rem;
+  text-align:left;
+}
+.project h3{
+  font-size:2rem;
+  color:var(--accent);
+  margin-bottom:1rem;
+}
+.project p{
+  font-size:1.1rem;
+  color:var(--muted);
+}
+
+.divider{
+  width:80%;
+  height:5px;
+  background:var(--divider);
+  margin:6rem auto;
+  border-radius:3px;
+  box-shadow:0 0 12px rgba(255,140,0,0.5);
+}
+
+footer{
+  text-align:center;
+  padding:4rem 1rem;
+  color:var(--muted);
+  font-size:1.1rem;
+  border-top:4px solid var(--divider);
+  background:var(--card);
+}
+
+@media(max-width:900px){
+  header{padding:2rem;}
+  .logo{width:55px;height:55px;font-size:1.5rem;}
+  .intro h2{font-size:2rem;}
+  .project-content{padding:2rem;}
+  .project img{height:50vh;}
 }
 </style>
 </head>
 <body>
+
 <header>
   <div class="brand">
-    <div class="badge">A</div>
-    <div class="title">
-      <h1>Alex — Renovation & Construction</h1>
-      <p>Professional contracting • Colorado</p>
-    </div>
-  </div>
-  <div class="controls">
-    <button id="themeBtn" class="btn alt" aria-pressed="false">🌙 Dark</button>
-    <button id="langBtn" class="btn">🇬🇧 English</button>
+    <div class="logo">A</div>
+    <h1>Alex — Renovation & Construction</h1>
   </div>
 </header>
 
-<section class="section-bg">
-  <div class="intro-left">
-    <h2 id="intro-title">Alex — Craft. Build. Restore.</h2>
-    <p id="intro-sub">Minimal portfolio showcasing renovation projects. Photos & email coming soon.</p>
-  </div>
-  <div class="intro-right">
-    <div class="placeholder" id="contactPlaceholder">✉️ Email: coming soon</div>
-    <div class="placeholder">📸 Photos: coming soon</div>
+<section class="intro">
+  <h2>Craft. Build. Restore.</h2>
+  <p>Professional renovation and remodeling by Alex.  
+  Photos and contact email coming soon.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="project">
+  <img src="https://via.placeholder.com/1920x1080?text=Kitchen+Renovation" alt="Kitchen Renovation">
+  <div class="project-content">
+    <h3>Kitchen Renovation</h3>
+    <p>Modern cabinet refinishing, lighting upgrades, and premium countertops crafted with precision.</p>
   </div>
 </section>
 
-<section>
-  <h3 style="margin-bottom:1rem; color:var(--accent)">Selected Projects</h3>
-  <div class="grid" id="portfolioGrid"></div>
+<div class="divider"></div>
+
+<section class="project">
+  <img src="https://via.placeholder.com/1920x1080?text=Bathroom+Remodel" alt="Bathroom Remodel">
+  <div class="project-content">
+    <h3>Bathroom Remodel</h3>
+    <p>Custom tiling, waterproof installations, and refined fixtures designed for modern living.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="project">
+  <img src="https://via.placeholder.com/1920x1080?text=Deck+Construction" alt="Deck Construction">
+  <div class="project-content">
+    <h3>Deck Construction</h3>
+    <p>Durable outdoor spaces using composite materials, blending craftsmanship and longevity.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="project">
+  <img src="https://via.placeholder.com/1920x1080?text=Basement+Finish" alt="Basement Finish">
+  <div class="project-content">
+    <h3>Basement Finish</h3>
+    <p>Transforming underused basements into functional, comfortable living areas with clean design.</p>
+  </div>
 </section>
 
 <footer>
-  © 2025 Alex • Serving Colorado • Photos & contact: coming soon
+  © 2025 Alex • Photos & email coming soon • Colorado
 </footer>
 
-<script>
-const themeBtn=document.getElementById('themeBtn');
-const langBtn=document.getElementById('langBtn');
+</body>
+</html>
 
-const savedTheme=localStorage.getItem('siteTheme')||'light';
-document.documentElement.setAttribute('data-theme',savedTheme);
-themeBtn.textContent=savedTheme==='light'?'🌙 Dark':'☀️ Light';
-themeBtn.setAttribute('aria-pressed',savedTheme==='dark');
-
-themeBtn.addEventListener('click',()=>{
-  const next=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';
-  document.documentElement.setAttribute('data-theme',next);
-  localStorage.setItem('siteTheme',next);
-  themeBtn.textContent=next==='light'?'🌙 Dark':'☀️ Light';
-  themeBtn.setAttribute('aria-pressed',next==='dark');
-});
-
-const content={
-en:{
-  introTitle:"Alex — Craft. Build. Restore.",
-  introSub:"Minimal portfolio showcasing renovation projects. Photos & email coming soon.",
-  contactText:"✉️ Email: coming soon",
-  projects:[
-    {title:"Kitchen Refresh", subtitle:"Cabinet refinish & layout tweak", img:"https://via.placeholder.com/320x200?text=Kitchen"},
-    {title:"Bathroom Update", subtitle:"Waterproofing & tile", img:"https://via.placeholder.com/320x200?text=Bath"},
-    {title:"Exterior Siding", subtitle:"Durable siding replacement", img:"https://via.placeholder.com/320x200?text=Siding"},
-    {title:"Basement Finish", subtitle:"Insulation & finish carpentry", img:"https://via.placeholder.com/320x200?text=Basement"},
-    {title:"Custom Cabinetry", subtitle:"Built-ins & storage solutions", img:"https://via.placeholder.com/320x200?text=Cabinet"},
-    {title:"Deck & Patio", subtitle:"Outdoor entertaining space", img:"https://via.placeholder.com/320x200?text=Deck"},
-    {title:"Window Upgrade", subtitle:"Thermal performance", img:"https://via.placeholder.com/320x200?text=Window"},
-    {title:"Energy Envelope", subtitle:"Insulation & air sealing", img:"https://via.placeholder.com/320x200?text=Insulation"}
-  ]
-},
-es:{
-  introTitle:"Alex — Construir. Restaurar. Crear.",
-  introSub:"Portafolio mínimo con proyectos de renovación. Fotos y correo pronto disponibles.",
-  contactText:"✉️ Correo: pronto disponible",
-  projects:[
-    {title:"Renovación de Cocina", subtitle:"Acabado de gabinetes y ajuste de distribución", img:"https://via.placeholder.com/320x200?text=Cocina"},
-    {title:"Actualización de Baño", subtitle:"Impermeabilización y azulejos", img:"https://via.placeholder.com/320x200?text=Baño"},
-    {title:"Revestimiento Exterior", subtitle:"Sustitución de revestimiento duradero", img:"https://via.placeholder.com/320x200?text=Revest"},
-    {title:"Sótano Terminado", subtitle:"Aislamiento y carpintería final", img:"https://via.placeholder.com/320x200?text=Sótano"},
-    {title:"Carpintería a Medida", subtitle:"Muebles empotrados y soluciones", img:"https://via.placeholder.com/320x200?text=Mueble"},
-    {title:"Deck y Patio", subtitle:"Espacio exterior para recibir", img:"https://via.placeholder.com/320x200?text=Patio"},
-    {title:"Mejora de Ventanas", subtitle:"Rendimiento térmico", img:"https://via.placeholder.com/320x200?text=Ventana"},
-    {title:"Envolvente Energética", subtitle:"Aislamiento y sellado de aire", img:"https://via.placeholder.com/320x200?text=Aislamiento"}
-  ]
-}};
-
-let lang=localStorage.getItem('siteLang')||'en';
-function render(){
-  const d=content[lang];
-  document.getElementById('intro-title').textContent=d.introTitle;
-  document.getElementById('intro-sub').textContent=d.introSub;
-  document.getElementById('contactPlaceholder').textContent=d.contactText;
-  const grid=document.getElementById('portfolioGrid');
-  grid.innerHTML=d.projects.map(p=>`
-    <div class="item" role="article" aria-label="${p.title}">
-      <img class="thumb" src="${p.img}" alt="${p.title}" loading="lazy">
-      <div class="meta">
-        <div class="t">${p.title}</div>
-        <div class="s">${p.subtitle}</div>
-      </div>
-    </div>`).join('');
-  langBtn.textContent=lang==='en'?'🇪🇸 Español':'🇬🇧 English';
-}
-langBtn.addEventListener('click',()=>{
-  lang=lang==='en'?'es':'en';
-  localStorage.setItem('siteLang',lang);
-  render();
-});
-render();
-</script>
 
