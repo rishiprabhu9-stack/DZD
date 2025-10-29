@@ -5,37 +5,94 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alex — Renovation & Construction</title>
 <style>
+:root {
+  --bg: #0e0e0e;
+  --card: #1a1a1a;
+  --text: #f5f5f5;
+  --muted: #b5b5b5;
+  --accent: #ff8c00;
+  --divider: #ff8c00;
+  --radius: 14px;
+}
 body {
   margin:0; padding:0;
   font-family:sans-serif;
-  background:#0e0e0e;
-  color:#f5f5f5;
+  background: var(--bg);
+  color: var(--text);
 }
 header {
-  padding:2rem; border-bottom:4px solid #ff8c00;
+  padding:2rem; border-bottom:4px solid var(--divider);
   display:flex; align-items:center; gap:1rem;
 }
 .logo {
-  background:#ff8c00; width:50px; height:50px;
+  background: var(--accent); width:50px; height:50px;
   display:flex; align-items:center; justify-content:center;
   font-weight:bold; color:white; border-radius:12px;
 }
 .intro { text-align:center; padding:2rem; }
-.projects-row {
+.projects-grid {
   display:grid;
   grid-template-columns:repeat(2, 1fr);
-  gap:1rem; padding:2rem;
+  gap:2rem; padding:2rem;
   max-width:1200px; margin:auto;
 }
-.project img { width:100%; height:200px; object-fit:cover; display:block; }
-.project-content { padding:0.5rem; }
-.divider { height:4px; background:#ff8c00; margin:2rem auto; width:90%; }
-footer { text-align:center; padding:2rem; border-top:4px solid #ff8c00; color:#b5b5b5; }
+.project {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,0.3);
+  position: relative;
+}
+.project h3 { color: var(--accent); margin:0.5rem 0; }
+.project p { color: var(--muted); font-size:0.9rem; }
+.divider { height:4px; background: var(--divider); margin:3rem auto; width:90%; }
+footer { text-align:center; padding:2rem; border-top:4px solid var(--divider); color: var(--muted); }
 
-/* mobile stack */
+/* Before & After Slider */
+.before-after {
+  position: relative;
+  overflow: hidden;
+  cursor: ew-resize;
+}
+.before-after img {
+  display:block; width:100%;
+  vertical-align:middle;
+}
+.before-after .after {
+  position: absolute;
+  top:0; left:0;
+  width:50%;  /* start slider in middle */
+  overflow:hidden;
+  height:100%;
+}
+.before-after .slider-handle {
+  position: absolute;
+  top:0; left:50%;
+  width:4px;
+  height:100%;
+  background: var(--accent);
+  cursor: ew-resize;
+  z-index:10;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index:1000;
+}
+.lightbox-overlay img { max-width:90%; max-height:90%; }
+.lightbox-overlay span { position:absolute; top:20px; right:30px; color:white; font-size:2rem; cursor:pointer; }
+
 @media(max-width:768px){
-  .projects-row { grid-template-columns:1fr; }
-  .project img { height:180px; }
+  .projects-grid { grid-template-columns:1fr; }
+  .before-after .after { width:50%; }
+  .before-after .slider-handle { left:50%; }
 }
 </style>
 </head>
@@ -53,28 +110,74 @@ footer { text-align:center; padding:2rem; border-top:4px solid #ff8c00; color:#b
 
 <div class="divider"></div>
 
-<section class="projects-row">
+<section class="projects-grid">
+
+  <!-- Project 1 -->
   <div class="project">
-    <img src="https://via.placeholder.com/800x600?text=Kitchen" alt="Kitchen Renovation">
-    <div class="project-content"><h3>Kitchen</h3><p>Cabinets and countertops.</p></div>
+    <div class="before-after">
+      <img src="https://via.placeholder.com/800x600?text=Kitchen+Before" alt="Before Kitchen" class="before lightbox-trigger">
+      <div class="after">
+        <img src="https://via.placeholder.com/800x600?text=Kitchen+After" alt="After Kitchen" class="lightbox-trigger">
+      </div>
+      <div class="slider-handle"></div>
+    </div>
+    <div class="project-content">
+      <h3>Kitchen Renovation</h3>
+      <p>Cabinets and countertops transformed.</p>
+    </div>
   </div>
+
+  <!-- Project 2 -->
   <div class="project">
-    <img src="https://via.placeholder.com/800x600?text=Bathroom" alt="Bathroom Remodel">
-    <div class="project-content"><h3>Bathroom</h3><p>Tiles and fixtures.</p></div>
+    <div class="before-after">
+      <img src="https://via.placeholder.com/800x600?text=Bathroom+Before" alt="Before Bathroom" class="before lightbox-trigger">
+      <div class="after">
+        <img src="https://via.placeholder.com/800x600?text=Bathroom+After" alt="After Bathroom" class="lightbox-trigger">
+      </div>
+      <div class="slider-handle"></div>
+    </div>
+    <div class="project-content">
+      <h3>Bathroom Remodel</h3>
+      <p>Tiles and fixtures upgraded.</p>
+    </div>
   </div>
+
 </section>
 
 <div class="divider"></div>
 
-<section class="projects-row">
+<section class="projects-grid">
+
+  <!-- Project 3 -->
   <div class="project">
-    <img src="https://via.placeholder.com/800x600?text=Deck" alt="Deck Construction">
-    <div class="project-content"><h3>Deck</h3><p>Outdoor space.</p></div>
+    <div class="before-after">
+      <img src="https://via.placeholder.com/800x600?text=Deck+Before" alt="Before Deck" class="before lightbox-trigger">
+      <div class="after">
+        <img src="https://via.placeholder.com/800x600?text=Deck+After" alt="After Deck" class="lightbox-trigger">
+      </div>
+      <div class="slider-handle"></div>
+    </div>
+    <div class="project-content">
+      <h3>Deck Construction</h3>
+      <p>Durable outdoor space.</p>
+    </div>
   </div>
+
+  <!-- Project 4 -->
   <div class="project">
-    <img src="https://via.placeholder.com/800x600?text=Basement" alt="Basement Finish">
-    <div class="project-content"><h3>Basement</h3><p>Cozy living area.</p></div>
+    <div class="before-after">
+      <img src="https://via.placeholder.com/800x600?text=Basement+Before" alt="Before Basement" class="before lightbox-trigger">
+      <div class="after">
+        <img src="https://via.placeholder.com/800x600?text=Basement+After" alt="After Basement" class="lightbox-trigger">
+      </div>
+      <div class="slider-handle"></div>
+    </div>
+    <div class="project-content">
+      <h3>Basement Finish</h3>
+      <p>Comfortable living area added.</p>
+    </div>
   </div>
+
 </section>
 
 <div class="divider"></div>
@@ -83,6 +186,68 @@ footer { text-align:center; padding:2rem; border-top:4px solid #ff8c00; color:#b
   © 2025 Alex • Photos & email coming soon • Colorado
 </footer>
 
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox">
+  <span id="lightbox-close">&times;</span>
+  <img src="" alt="Lightbox Image" id="lightbox-img">
+</div>
+
+<script>
+// Before/After slider
+document.querySelectorAll('.before-after').forEach(container => {
+  const after = container.querySelector('.after');
+  const handle = container.querySelector('.slider-handle');
+  let isDragging = false;
+
+  const startDrag = () => { isDragging = true; };
+  const stopDrag = () => { isDragging = false; };
+  const moveDrag = e => {
+    if(!isDragging) return;
+    let rect = container.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    if(x < 0) x = 0;
+    if(x > rect.width) x = rect.width;
+    after.style.width = x + 'px';
+    handle.style.left = x + 'px';
+  };
+
+  container.addEventListener('mousedown', startDrag);
+  container.addEventListener('mouseup', stopDrag);
+  container.addEventListener('mouseleave', stopDrag);
+  container.addEventListener('mousemove', moveDrag);
+
+  // Mobile touch
+  container.addEventListener('touchstart', () => isDragging=true);
+  container.addEventListener('touchend', () => isDragging=false);
+  container.addEventListener('touchmove', e=>{
+    if(!isDragging) return;
+    let touch = e.touches[0];
+    let rect = container.getBoundingClientRect();
+    let x = touch.clientX - rect.left;
+    if(x < 0) x=0; if(x>rect.width) x=rect.width;
+    after.style.width = x+'px';
+    handle.style.left = x+'px';
+  });
+});
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lightbox-img');
+document.querySelectorAll('.lightbox-trigger').forEach(img => {
+  img.addEventListener('click', ()=> {
+    lbImg.src = img.src;
+    lightbox.style.display = 'flex';
+  });
+});
+document.getElementById('lightbox-close').addEventListener('click', ()=> {
+  lightbox.style.display = 'none';
+});
+lightbox.addEventListener('click', e=> {
+  if(e.target === lightbox) lightbox.style.display='none';
+});
+</script>
+
 </body>
 </html>
+
 
