@@ -1,88 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alex — Renovation & Construction</title>
 <style>
 :root {
-  --bg:#0e0e0e;
-  --card:#1a1a1a;
-  --text:#f5f5f5;
-  --muted:#b5b5b5;
-  --accent:#ff8c00;
-  --divider:#ff8c00;
-  --radius:14px;
+  --bg: #0e0e0e;
+  --card: #1a1a1a;
+  --text: #f5f5f5;
+  --muted: #b5b5b5;
+  --accent: #ff8c00;
+  --divider: #ff8c00;
+  --radius: 14px;
 }
-*{box-sizing:border-box;margin:0;padding:0;}
-body{
-  font-family:'Poppins',system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
-header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:2rem 3rem;
-  border-bottom:4px solid var(--divider);
+header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 2rem 3rem;
+  border-bottom: 4px solid var(--divider);
 }
-.brand{display:flex;align-items:center;gap:1rem;}
-.logo{
-  background:linear-gradient(135deg,var(--accent),#ffb56b);
-  color:white;font-weight:700;font-size:2rem;
-  width:60px;height:60px;border-radius:14px;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 6px 18px rgba(255,140,0,0.3);
+.brand { display: flex; align-items: center; gap: 1rem; }
+.logo {
+  background: linear-gradient(135deg, var(--accent), #ffb56b);
+  color: white; font-weight: 700; font-size: 2rem;
+  width: 60px; height: 60px; border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px rgba(255,140,0,0.3);
 }
-header h1{font-size:1.8rem;}
-section{padding:3rem 2rem;}
-.intro{text-align:center; max-width:900px; margin:auto;}
-.intro h2{color:var(--accent); font-size:2.2rem; margin-bottom:1rem;}
-.intro p{color:var(--muted); font-size:1.1rem;}
+header h1 { font-size: 1.8rem; }
 
-.projects-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(45%,1fr));
-  gap:2rem;
-  max-width:1200px;
-  margin:auto;
-}
+section { padding: 3rem 2rem; }
+.intro { text-align: center; max-width: 900px; margin: auto; }
+.intro h2 { color: var(--accent); font-size: 2.2rem; margin-bottom: 1rem; }
+.intro p { color: var(--muted); font-size: 1.1rem; }
 
-.project{
-  background:var(--card);
-  border-radius:var(--radius);
-  overflow:hidden;
-  box-shadow:0 6px 20px rgba(0,0,0,0.3);
+.projects-row {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 3rem auto;
+  gap: 2rem;
 }
-.project img{
-  width:100%;
-  height:300px;
-  object-fit:cover;
-  display:block;
+.project {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  flex: 1;
 }
-.project-content{
-  padding:1.5rem;
+.project img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
 }
-.project h3{color:var(--accent); font-size:1.4rem; margin-bottom:.5rem;}
-.project p{color:var(--muted); font-size:1rem;}
-.divider{
-  width:90%;
-  height:4px;
-  background:var(--divider);
-  margin:4rem auto;
-  border-radius:2px;
-  box-shadow:0 0 10px rgba(255,140,0,0.4);
+.project-content {
+  padding: 1.5rem;
 }
-footer{
-  text-align:center;
-  padding:3rem 1rem;
-  color:var(--muted);
-  border-top:4px solid var(--divider);
+.project h3 { color: var(--accent); font-size: 1.4rem; margin-bottom: .5rem; }
+.project p { color: var(--muted); font-size: 1rem; }
+
+.divider {
+  width: 90%;
+  height: 4px;
+  background: var(--divider);
+  margin: 4rem auto;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(255,140,0,0.4);
 }
 
+footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--muted);
+  border-top: 4px solid var(--divider);
+}
+
+/* Responsive */
 @media(max-width:768px){
-  .projects-grid{grid-template-columns:1fr; gap:1.5rem;}
-  .project img{height:250px;}
+  .projects-row { flex-direction: column; gap: 2rem; }
+  .project img { height: 250px; }
 }
 </style>
 </head>
@@ -102,7 +106,7 @@ footer{
 
 <div class="divider"></div>
 
-<section class="projects-grid">
+<section class="projects-row">
   <div class="project">
     <img src="https://via.placeholder.com/800x600?text=Kitchen+Renovation" alt="Kitchen Renovation">
     <div class="project-content">
@@ -121,7 +125,7 @@ footer{
 
 <div class="divider"></div>
 
-<section class="projects-grid">
+<section class="projects-row">
   <div class="project">
     <img src="https://via.placeholder.com/800x600?text=Deck+Construction" alt="Deck Construction">
     <div class="project-content">
@@ -138,12 +142,15 @@ footer{
   </div>
 </section>
 
+<div class="divider"></div>
+
 <footer>
   © 2025 Alex • Photos & email coming soon • Colorado
 </footer>
 
 </body>
 </html>
+
 
 
 
