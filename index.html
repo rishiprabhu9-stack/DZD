@@ -12,7 +12,7 @@
   --muted: #b5b5b5;
   --accent: #ff8c00;
   --divider: #ff8c00;
-  --radius: 14px;
+  --radius: 16px;
 }
 body {
   margin:0; padding:0;
@@ -25,27 +25,27 @@ header {
   display:flex; align-items:center; gap:1rem;
 }
 .logo {
-  background: var(--accent); width:50px; height:50px;
+  background: var(--accent); width:60px; height:60px;
   display:flex; align-items:center; justify-content:center;
-  font-weight:bold; color:white; border-radius:12px;
+  font-weight:bold; color:white; border-radius:16px;
 }
 .intro { text-align:center; padding:2rem; }
 .projects-grid {
   display:grid;
   grid-template-columns:repeat(2, 1fr);
-  gap:2rem; padding:2rem;
-  max-width:1200px; margin:auto;
+  gap:2.5rem; padding:2.5rem;
+  max-width:1400px; margin:auto;
 }
 .project {
   background: var(--card);
   border-radius: var(--radius);
   overflow:hidden;
-  box-shadow:0 6px 20px rgba(0,0,0,0.3);
+  box-shadow:0 8px 24px rgba(0,0,0,0.35);
   position: relative;
 }
-.project h3 { color: var(--accent); margin:0.5rem 0; }
-.project p { color: var(--muted); font-size:0.9rem; }
-.divider { height:4px; background: var(--divider); margin:3rem auto; width:90%; }
+.project h3 { color: var(--accent); margin:0.5rem 0; font-size:1.6rem; }
+.project p { color: var(--muted); font-size:1rem; }
+.divider { height:5px; background: var(--divider); margin:4rem auto; width:90%; }
 footer { text-align:center; padding:2rem; border-top:4px solid var(--divider); color: var(--muted); }
 
 /* Before & After Slider */
@@ -53,22 +53,25 @@ footer { text-align:center; padding:2rem; border-top:4px solid var(--divider); c
   position: relative;
   overflow: hidden;
   cursor: ew-resize;
+  height: 400px; /* bigger image height */
 }
 .before-after img {
   display:block; width:100%;
   vertical-align:middle;
+  height: 100%;
+  object-fit: cover;
 }
 .before-after .after {
   position: absolute;
   top:0; left:0;
-  width:50%;  /* start slider in middle */
+  width:50%; 
   overflow:hidden;
   height:100%;
 }
 .before-after .slider-handle {
   position: absolute;
   top:0; left:50%;
-  width:4px;
+  width:5px;
   height:100%;
   background: var(--accent);
   cursor: ew-resize;
@@ -91,6 +94,7 @@ footer { text-align:center; padding:2rem; border-top:4px solid var(--divider); c
 
 @media(max-width:768px){
   .projects-grid { grid-template-columns:1fr; }
+  .before-after { height:300px; }
   .before-after .after { width:50%; }
   .before-after .slider-handle { left:50%; }
 }
@@ -115,9 +119,9 @@ footer { text-align:center; padding:2rem; border-top:4px solid var(--divider); c
   <!-- Project 1 -->
   <div class="project">
     <div class="before-after">
-      <img src="https://via.placeholder.com/800x600?text=Kitchen+Before" alt="Before Kitchen" class="before lightbox-trigger">
+      <img src="https://via.placeholder.com/1000x800?text=Kitchen+Before" alt="Before Kitchen" class="before lightbox-trigger">
       <div class="after">
-        <img src="https://via.placeholder.com/800x600?text=Kitchen+After" alt="After Kitchen" class="lightbox-trigger">
+        <img src="https://via.placeholder.com/1000x800?text=Kitchen+After" alt="After Kitchen" class="lightbox-trigger">
       </div>
       <div class="slider-handle"></div>
     </div>
@@ -130,9 +134,9 @@ footer { text-align:center; padding:2rem; border-top:4px solid var(--divider); c
   <!-- Project 2 -->
   <div class="project">
     <div class="before-after">
-      <img src="https://via.placeholder.com/800x600?text=Bathroom+Before" alt="Before Bathroom" class="before lightbox-trigger">
+      <img src="https://via.placeholder.com/1000x800?text=Bathroom+Before" alt="Before Bathroom" class="before lightbox-trigger">
       <div class="after">
-        <img src="https://via.placeholder.com/800x600?text=Bathroom+After" alt="After Bathroom" class="lightbox-trigger">
+        <img src="https://via.placeholder.com/1000x800?text=Bathroom+After" alt="After Bathroom" class="lightbox-trigger">
       </div>
       <div class="slider-handle"></div>
     </div>
@@ -151,9 +155,9 @@ footer { text-align:center; padding:2rem; border-top:4px solid var(--divider); c
   <!-- Project 3 -->
   <div class="project">
     <div class="before-after">
-      <img src="https://via.placeholder.com/800x600?text=Deck+Before" alt="Before Deck" class="before lightbox-trigger">
+      <img src="https://via.placeholder.com/1000x800?text=Deck+Before" alt="Before Deck" class="before lightbox-trigger">
       <div class="after">
-        <img src="https://via.placeholder.com/800x600?text=Deck+After" alt="After Deck" class="lightbox-trigger">
+        <img src="https://via.placeholder.com/1000x800?text=Deck+After" alt="After Deck" class="lightbox-trigger">
       </div>
       <div class="slider-handle"></div>
     </div>
@@ -166,9 +170,9 @@ footer { text-align:center; padding:2rem; border-top:4px solid var(--divider); c
   <!-- Project 4 -->
   <div class="project">
     <div class="before-after">
-      <img src="https://via.placeholder.com/800x600?text=Basement+Before" alt="Before Basement" class="before lightbox-trigger">
+      <img src="https://via.placeholder.com/1000x800?text=Basement+Before" alt="Before Basement" class="before lightbox-trigger">
       <div class="after">
-        <img src="https://via.placeholder.com/800x600?text=Basement+After" alt="After Basement" class="lightbox-trigger">
+        <img src="https://via.placeholder.com/1000x800?text=Basement+After" alt="After Basement" class="lightbox-trigger">
       </div>
       <div class="slider-handle"></div>
     </div>
@@ -249,5 +253,3 @@ lightbox.addEventListener('click', e=> {
 
 </body>
 </html>
-
-
