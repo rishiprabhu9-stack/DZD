@@ -14,6 +14,7 @@
   --divider: #ff8c00;
   --radius: 14px;
 }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Poppins', system-ui, sans-serif;
@@ -21,6 +22,7 @@ body {
   color: var(--text);
   line-height: 1.6;
 }
+
 header {
   display: flex; justify-content: space-between; align-items: center;
   padding: 2rem 3rem;
@@ -41,19 +43,19 @@ section { padding: 3rem 2rem; }
 .intro h2 { color: var(--accent); font-size: 2.2rem; margin-bottom: 1rem; }
 .intro p { color: var(--muted); font-size: 1.1rem; }
 
-.projects-row {
-  display: flex;
-  justify-content: space-between;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two images per row */
+  gap: 2rem;
   max-width: 1200px;
   margin: 3rem auto;
-  gap: 2rem;
 }
+
 .project {
   background: var(--card);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  flex: 1;
 }
 .project img {
   width: 100%;
@@ -83,9 +85,9 @@ footer {
   border-top: 4px solid var(--divider);
 }
 
-/* Responsive */
+/* Mobile: stack projects */
 @media(max-width:768px){
-  .projects-row { flex-direction: column; gap: 2rem; }
+  .projects-grid { grid-template-columns: 1fr; gap: 2rem; }
   .project img { height: 250px; }
 }
 </style>
@@ -106,7 +108,7 @@ footer {
 
 <div class="divider"></div>
 
-<section class="projects-row">
+<section class="projects-grid">
   <div class="project">
     <img src="https://via.placeholder.com/800x600?text=Kitchen+Renovation" alt="Kitchen Renovation">
     <div class="project-content">
@@ -125,7 +127,7 @@ footer {
 
 <div class="divider"></div>
 
-<section class="projects-row">
+<section class="projects-grid">
   <div class="project">
     <img src="https://via.placeholder.com/800x600?text=Deck+Construction" alt="Deck Construction">
     <div class="project-content">
@@ -150,7 +152,3 @@ footer {
 
 </body>
 </html>
-
-
-
-
