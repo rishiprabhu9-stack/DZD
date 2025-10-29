@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<
+   head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Alex — Renovation & Construction</title>
@@ -47,6 +48,7 @@ body{
   width:68px; height:68px; border-radius:14px;
   background:linear-gradient(135deg,var(--accent),#ffb56b);
   display:flex; align-items:center; justify-content:center;
+
   font-weight:700; color:white; font-size:1.4rem;
   box-shadow:0 10px 28px rgba(255,140,0,0.18);
 }
@@ -63,13 +65,22 @@ body{
 .intro p{ color:var(--muted); margin:0; font-size:1.05rem; }
 
 /* Divider bar between rows */
-.divider {
-  width:88%;
-  height:6px;
-  background:var(--divider);
-  margin:3.25rem auto;
-  border-radius:4px;
-  box-shadow:0 0 20px rgba(255,140,0,0.28);
+<!-- BEFORE image (clickable) -->
+<img class="before img-trigger" 
+     src="https://images.squarespace-cdn.com/content/v1/4fcf5c8684aef9ce6e0a44b0/1431898955969-9F562ZOY0N0OM374L1TJ/Before++pic+of+ugly+cabinets" 
+     alt="Kitchen before">
+
+<!-- AFTER overlay -->
+<div class="after">
+  <img class="after-img img-trigger" 
+       src="https://www.mydomaine.com/thmb/kqpD_FfR-tqNAxxWuDCBVgZUpmY=/2000x0/filters:no_upscale():strip_icc()/RD_LaurelWay_0111_F-43c9ae05930b4c0682d130eee3ede5df.jpg" 
+       alt="Kitchen after">
+</div>
+
+<!-- slider visual -->
+<div class="slider-handle" aria-hidden="true"></div>
+<div class="slider-knob" aria-hidden="true"></div>
+
 }
 
 /* Projects grid: two large panels per row */
